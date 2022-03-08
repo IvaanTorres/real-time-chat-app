@@ -29,7 +29,7 @@ jobs:
       - run: npm run build
       # - run: npm test --if-present
 
-  deploy:
+  docker:
     needs: build
     runs-on: ubuntu-latest
     strategy:
@@ -60,3 +60,13 @@ jobs:
           push: true
           tags: ivaantorres/real-time-chat-app:0.1 # Name of the new tag
 
+  deploy:
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
+          heroku_email: 'ivantorresgarcia.02@gmail.com'
