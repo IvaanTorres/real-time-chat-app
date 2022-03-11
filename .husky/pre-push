@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+printf "${BLUE}Running Unit Tests... (Vitest)\n${NC}"
+npm run test:unit
+
+#printf "${BLUE}Running e2e Tests... (Cypress)\n${NC}"
+#npm run test:e2e
