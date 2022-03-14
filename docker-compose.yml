@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  app:
+  ui:
     build:
       context: ./
       target: prod
@@ -11,6 +11,17 @@ services:
     volumes:
       - '/usr/src/app/node_modules' # Necesario para el arranque de la app en Docker
       - '.:/usr/src/app'
+
+  api:
+    container_name: app-api
+    image: 'ivaantorres/api-real-time-chat-app:0.1'
+    environment:
+      - DB_CONNECTION=${DB_CONNECTION}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+    ports:
+      - '3000:3000'
 
   mongo:
     image: 'mongo:5.0.6'
