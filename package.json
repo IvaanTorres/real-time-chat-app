@@ -12,17 +12,21 @@
     "typecheck": "vue-tsc --noEmit",
     "start": "node server.js",
     "prepare": "husky install",
-    "docker:prod":"docker-compose -f docker-compose.prod.yml up",
-    "docker:local":"docker-compose up"
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up",
+    "docker:local": "docker-compose up --build --remove-orphans",
+    "docker:clear": "docker rmi $(docker images -f \"dangling=true\" -q)",
+    "coverage": "npm run test:unit && node sonar-project.js"
   },
   "dependencies": {
     "@vueuse/core": "^7.7.0",
     "@vueuse/head": "^0.7.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "npm": "^8.5.3",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.11",
     "prism-theme-vars": "^0.2.2",
+    "sonarqube-scanner": "^2.8.1",
     "vue": "^3.2.31",
     "vue-demi": "^0.12.1",
     "vue-i18n": "^9.1.9",
