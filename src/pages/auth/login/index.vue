@@ -1,13 +1,10 @@
+
 <script lang="ts" setup>
 import { useUserStore } from '~/stores/user'
 const router = useRouter()
 const user = useUserStore()
-const name = ref(user.savedName)
 
-const go = () => {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`)
-}
+const go = () => router.push('/dashboard/')
 </script>
 
 <template>
@@ -17,7 +14,7 @@ const go = () => {
     </h1>
     <br>
     <label sm="text-white" dark="text-black" for="user">User:</label><br>
-    <input id="user" v-model="name" sm="text-black p-1" type="text" name="user" @keydown.enter="go"><br>
+    <input id="user" v-model="user.savedName" sm="text-black p-1" type="text" name="user" @keydown.enter="go"><br>
     <input sm="bg-white mt-5 px-5 text-black" type="submit" value="Login" @click="go">
   </div>
 </template>

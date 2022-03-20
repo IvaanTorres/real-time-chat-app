@@ -1,14 +1,20 @@
 <script lang="ts" setup>
+import socket from '~/sockets/sockets'
+import { useUserStore } from '~/stores/user'
+
 const router = useRouter()
-const props = defineProps<{ name: string }>()
-const name = ref(props.name)
+const user = useUserStore()
+const username = ref(user.savedName)
 const msg = 'There\'s no messages for the moment'
+
+onMounted(() => socket.connect())
+
 const logout = () => router.back()
 </script>
 
 <template>
   <h2 sm="text-black mb-5" dark="text-white">
-    Welcome: {{ name }}
+    Welcome {{ username }} !
   </h2>
   <div sm="flex justify-between flex-col w-full bg-gray-200 min-h-52" role="chat">
     <div sm="text-black" role="msg">
