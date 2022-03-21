@@ -9,13 +9,16 @@
     "test": "vitest",
     "test:e2e": "cypress open",
     "test:unit": "vitest run",
+    "coverage": "npm run test:unit && node sonar-project.js",
     "typecheck": "vue-tsc --noEmit",
     "start": "node server.js",
     "prepare": "husky install",
-    "docker:prod": "docker-compose -f docker-compose.prod.yml up",
     "docker:local": "docker-compose up --build --remove-orphans",
-    "docker:clear": "docker rmi $(docker images -f \"dangling=true\" -q)",
-    "coverage": "npm run test:unit && node sonar-project.js"
+    "docker:local:not-api": "docker-compose up --scale api=0 --build",
+    "docker:local:ui": "docker-compose up ui --build",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up --build",
+    "docker:services": "docker-compose up mongodb sonarqube",
+    "docker:purge": "docker rmi $(docker images -f \"dangling=true\" -q)"
   },
   "dependencies": {
     "@vueuse/core": "^7.7.0",

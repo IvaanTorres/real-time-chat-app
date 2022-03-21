@@ -1,33 +1,33 @@
 version: '3'
 
 services:
-  #ui:
-  #  container_name: app-ui
-  #  build:
-  #    context: ./
-  #    target: dev
-  #  ports:
-  #    - '80:80' # Deben ser los mismos puertos, sino, la página se refresca constantemente
-  #  volumes:
-  #    - '/usr/src/app/node_modules' # Necesario para el arranque de la app en Docker
-  #    - '.:/usr/src/app'
+  ui:
+    container_name: app-ui
+    build:
+      context: ./
+      target: dev
+    ports:
+      - '80:80' # Deben ser los mismos puertos, sino, la página se refresca constantemente
+    volumes:
+      - '/usr/src/app/node_modules' # Necesario para el arranque de la app en Docker
+      - '.:/usr/src/app'
 
   api:
     container_name: app-api
     image: 'ivaantorres/api-real-time-chat-app:0.1'
     environment:
-      - DB_CONNECTION=${DB_CONNECTION}
-      - DB_HOST=${DB_HOST}
+      - DB_CONNECTION=mongodb
+      - DB_HOST=mongodb
       - DB_PORT=${DB_PORT}
       - DB_DATABASE=${DB_DATABASE}
     ports:
-      - '3000:3000'
+      - '${PORT}:3000'
 
   mongodb:
     container_name: mongo
     image: 'mongo:5.0.6'
     ports:
-      - '27017:27017'
+      - '${DB_PORT}:27017'
     volumes:
       - '/c/data/db:/data/db'
     logging:
@@ -37,7 +37,7 @@ services:
     container_name: sonarqube
     image: 'sonarqube:lts-community'
     ports:
-      - '9000:9000'
+      - '${SONAR_UI_PORT}:9000'
       - '9002:9002'
     volumes:
       - '/c/Users/Iván/Desktop/sonarqube/data:/opt/sonarqube/data'
@@ -46,3 +46,7 @@ services:
       - '/c/Users/Iván/Desktop/sonarqube/extensions:/opt/sonarqube/extensions'
     logging:
       driver: none
+
+networks: 
+  default:
+    name: thunder-link-network
