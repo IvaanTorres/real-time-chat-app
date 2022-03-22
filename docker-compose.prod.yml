@@ -4,6 +4,9 @@ services:
   ui:
     container_name: app-ui
     image: 'ivaantorres/real-time-chat-app:0.1'
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+      - VITE_API_PORT=
     ports:
       - '80:80'
 
@@ -11,12 +14,13 @@ services:
     container_name: app-api
     image: 'ivaantorres/api-real-time-chat-app:0.1'
     environment:
+    # Change to MongoDB Atlas config
       - DB_CONNECTION=${DB_CONNECTION}
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_DATABASE=${DB_DATABASE}
     ports:
-      - '${PORT}:3000'
+      - '3000:3000'
 
   mongodb:
     container_name: mongo

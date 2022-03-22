@@ -6,6 +6,9 @@ services:
     build:
       context: ./
       target: dev
+    environment:
+      - VITE_API_URL=http://localhost
+      - VITE_API_PORT=3000
     ports:
       - '80:80' # Deben ser los mismos puertos, sino, la página se refresca constantemente
     volumes:
@@ -18,16 +21,16 @@ services:
     environment:
       - DB_CONNECTION=mongodb
       - DB_HOST=mongodb
-      - DB_PORT=${DB_PORT}
-      - DB_DATABASE=${DB_DATABASE}
+      - DB_PORT=27017
+      - DB_DATABASE=thunder-link
     ports:
-      - '${PORT}:3000'
+      - '3000:3000'
 
   mongodb:
     container_name: mongo
     image: 'mongo:5.0.6'
     ports:
-      - '${DB_PORT}:27017'
+      - '27017:27017'
     volumes:
       - '/c/data/db:/data/db'
     logging:
