@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "vite-ssg build",
-    "dev": "vite --port 80",
+    "dev": "vite --port 80 --mode development",
     "lint": "eslint \"**/*.{vue,ts,js}\"",
     "preview": "vite preview",
     "preview-https": "serve dist",
@@ -13,12 +13,13 @@
     "typecheck": "vue-tsc --noEmit",
     "start": "node server.js",
     "prepare": "husky install",
-    "docker:local": "docker-compose up --build --remove-orphans",
-    "docker:local:not-api": "docker-compose up --scale api=0 --build",
-    "docker:local:ui": "docker-compose up ui --build",
-    "docker:prod": "docker-compose -f docker-compose.prod.yml up --build",
-    "docker:services": "docker-compose up mongodb sonarqube",
-    "docker:purge": "docker rmi $(docker images -f \"dangling=true\" -q)"
+    "docker:build": "vite-ssg build --mode staging",
+    "docker:local": "docker image prune -f && docker-compose down && docker-compose up --build --remove-orphans",
+    "docker:local:not-api": "docker image prune -f && docker-compose up --scale api=0 --build",
+    "docker:local:ui": "docker image prune -f && docker-compose down && docker-compose up ui --build",
+    "docker:prod": "docker image prune -f && docker-compose -f docker-compose.prod.yml up --build",
+    "docker:services": "docker image prune -f && docker-compose up mongodb sonarqube",
+    "docker:prune": "docker image prune -f"
   },
   "dependencies": {
     "@vueuse/core": "^7.7.0",

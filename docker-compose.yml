@@ -6,9 +6,6 @@ services:
     build:
       context: ./
       target: dev
-    environment:
-      - VITE_API_URL=http://localhost
-      - VITE_API_PORT=3000
     ports:
       - '80:80' # Deben ser los mismos puertos, sino, la página se refresca constantemente
     volumes:
@@ -23,6 +20,7 @@ services:
       - DB_HOST=mongodb
       - DB_PORT=27017
       - DB_DATABASE=thunder-link
+      - PORT=3000
     ports:
       - '3000:3000'
 
@@ -40,7 +38,7 @@ services:
     container_name: sonarqube
     image: 'sonarqube:lts-community'
     ports:
-      - '${SONAR_UI_PORT}:9000'
+      - '9000:9000'
       - '9002:9002'
     volumes:
       - '/c/Users/Iván/Desktop/sonarqube/data:/opt/sonarqube/data'

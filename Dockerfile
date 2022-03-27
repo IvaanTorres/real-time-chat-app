@@ -14,7 +14,7 @@ CMD [ "npm", "run", "dev" ]
 
 # PRODUCTION ENVIRONMENT STAGE
 FROM main as build
-RUN npm run build
+RUN npm run docker:build
 
 FROM nginx:1.21.6-alpine as prod
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html

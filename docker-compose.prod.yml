@@ -19,6 +19,7 @@ services:
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_DATABASE=${DB_DATABASE}
+      - PORT=3000
     ports:
       - '3000:3000'
 
