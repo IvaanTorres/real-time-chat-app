@@ -1,9 +1,13 @@
 
 <script lang="ts" setup>
 import { useUserStore } from '~/stores/user'
+// Use router
 const router = useRouter()
+// use the user store
 const user = useUserStore()
-
+/**
+ * Push to dashboard
+ */
 const go = () => router.push('/dashboard/')
 </script>
 

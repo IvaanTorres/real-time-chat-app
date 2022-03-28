@@ -4,30 +4,29 @@ services:
   ui:
     container_name: app-ui
     image: 'ivaantorres/real-time-chat-app:0.1'
-    environment:
-      - VITE_API_URL=${VITE_API_URL}
-      - VITE_API_PORT=
     ports:
       - '80:80'
 
   api:
     container_name: app-api
     image: 'ivaantorres/api-real-time-chat-app:0.1'
+    depends_on:
+      - mongodb
     environment:
-    # Change to MongoDB Atlas config
-      - DB_CONNECTION=${DB_CONNECTION}
+    # MongoDB Atlas config
+      - DB_CONNECTION=${DB_CONNECTION} # Docker compose can use variables linked with .env, not .env.local
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_DATABASE=${DB_DATABASE}
-      - PORT=3000
+      - PORT=${VITE_API_PORT}
     ports:
-      - '3000:3000'
+      - '${VITE_API_PORT}:${VITE_API_PORT}'
 
   mongodb:
     container_name: mongo
     image: 'mongo:5.0.6'
     ports:
-      - '27017:27017'
+      - '${DB_PORT}:27017'
     volumes:
       - '/c/data/db:/data/db'
     logging:

@@ -1,5 +1,7 @@
 <script setup lang="ts">
+// Use router
 const router = useRouter()
+// Use I18n
 const { t } = useI18n()
 </script>
 

@@ -1,14 +1,19 @@
 <script lang="ts" setup>
-import socket from '~/sockets/sockets'
+import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
-
+// Use router
 const router = useRouter()
+// Use the user store
 const user = useUserStore()
 const username = ref(user.savedName)
 const msg = 'There\'s no messages for the moment'
-
+/**
+ * Connect to the socket when mounted
+ */
 onMounted(() => socket.connect())
-
+/**
+ * Go back to the login page
+ */
 const logout = () => router.back()
 </script>
 

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+// use the dark mode
 import { toggleDark } from '~/composables/dark'
 </script>
 

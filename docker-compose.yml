@@ -15,20 +15,22 @@ services:
   api:
     container_name: app-api
     image: 'ivaantorres/api-real-time-chat-app:0.1'
+    depends_on:
+      - mongodb
     environment:
       - DB_CONNECTION=mongodb
       - DB_HOST=mongodb
       - DB_PORT=27017
       - DB_DATABASE=thunder-link
-      - PORT=3000
+      - PORT=${VITE_API_PORT}
     ports:
-      - '3000:3000'
+      - '${VITE_API_PORT}:${VITE_API_PORT}'
 
   mongodb:
     container_name: mongo
     image: 'mongo:5.0.6'
     ports:
-      - '27017:27017'
+      - '${DB_PORT}:27017'
     volumes:
       - '/c/data/db:/data/db'
     logging:
@@ -38,7 +40,7 @@ services:
     container_name: sonarqube
     image: 'sonarqube:lts-community'
     ports:
-      - '9000:9000'
+      - '${SONAR_UI_PORT}:9000'
       - '9002:9002'
     volumes:
       - '/c/Users/Iván/Desktop/sonarqube/data:/opt/sonarqube/data'
