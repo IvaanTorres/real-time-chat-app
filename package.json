@@ -1,4 +1,9 @@
 {
+  "name": "ui-thunder-link",
+  "version": "0.1.0",
+  "description": "Thunder Link UI APP (Real time chat app)",
+  "author": "@IvaanTorres",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "build": "vite-ssg build",

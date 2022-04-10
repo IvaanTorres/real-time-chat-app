@@ -41,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ### **Docs**
   - [2022-03-29] Add comments and fix code smells ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/95cc53e5638fb116232487be9227d0099dc2e2be))
+  - [2022-04-10] Create CHANGELOG and modify README ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/40b4ac327d9a984aa4774e4dad8137687fff44f8))
 
 - ### **Build**
   - [2022-04-10] Set coverage with vitest ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/650339db6d257c9d336be3ac0dc6c3bbcb51eeed))
