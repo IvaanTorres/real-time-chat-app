@@ -9,3 +9,5 @@ node_modules
 *.log
 .env
 .scannerwork
+coverage
+.vscode
