@@ -14,7 +14,7 @@ services:
 
   api:
     container_name: app-api
-    image: 'ivaantorres/api-real-time-chat-app:0.1'
+    image: 'ivaantorres/api-real-time-chat-app:${API_VERSION}'
     depends_on:
       - mongodb
     environment:
