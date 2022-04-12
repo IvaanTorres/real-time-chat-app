@@ -1,4 +1,4 @@
-# Thunder Link (v0.1.0) -  A Real-time Chat App
+# Thunder Link (v0.1.1) -  A Real-time Chat App
 
 This is the Thunder Link UI APP. It uses the Sockets API APP.
 

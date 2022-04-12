@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is partially based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## **[v0.1.1] - 2022-04-13**
+- ### **Chore**
+  - [2022-03-11] Set MongoDB Atlas in PROD mode and Docker PROD mode ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/2e54483306a251a99a43f061a2ad74b208d24ed1)) 
+  
+- ### **Fix**
+  - [2022-03-11] Remove ENV reader from the pipeline ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/82f2d2d09b3f2b04bfa4f534c7706518232edb77)) 
+  - [2022-03-12] Cannot switch between mongodb and mongodb atlas according to the environment ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/6966d530642455ccc2ab493c587d858dc1de7bb8)) 
+  - [2022-03-12] The VITE_API_URL env variable is undefined when the actions pipeline runs ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/10883b036a5e0ee5dc82c5280166cb231be58152)) 
+  - [2022-03-12] The VITE_API_URL env variable is undefined when the actions pipeline runs ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/fe295661e0a422cc1aa037097732a65cb60547cb)) 
+  - [2022-03-12] The VITE_API_URL env variable is undefined when the actions pipeline runs (fix) ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/5fc381bb409f5b02ae849d7bb922316b656d0b44)) 
+  
+- ### **CI**
+  - [2022-03-11] Set the current APP versions in ENV variables ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/f892d3cee4d429562e0b6c611c0df45135275bee)) 
+
 ## **[v0.1.0] - 2022-04-10**
 
 - ### **Feat**
