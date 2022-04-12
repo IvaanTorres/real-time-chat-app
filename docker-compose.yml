@@ -18,10 +18,10 @@ services:
     depends_on:
       - mongodb
     environment:
-      - DB_CONNECTION=mongodb
-      - DB_HOST=mongodb
-      - DB_PORT=27017
-      - DB_DATABASE=thunder-link
+      - DB_CONNECTION=${DB_CONNECTION}
+      - DB_HOST=${DB_HOST}:${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_PARAMS=${DB_PARAMS}
       - PORT=${VITE_API_PORT}
     ports:
       - '${VITE_API_PORT}:${VITE_API_PORT}'

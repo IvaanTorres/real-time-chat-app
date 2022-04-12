@@ -12,9 +12,8 @@ services:
     image: 'ivaantorres/api-real-time-chat-app:${API_VERSION}'
     environment:
     # MongoDB Atlas config
-      - DB_CONNECTION=${DB_CONNECTION} # Docker compose can use variables linked with .env, not .env.local
+      - DB_CONNECTION=${DB_CONNECTION}
       - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
       - DB_DATABASE=${DB_DATABASE}
       - DB_PARAMS=${DB_PARAMS}
       - PORT=${VITE_API_PORT}

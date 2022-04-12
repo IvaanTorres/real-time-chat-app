@@ -22,7 +22,7 @@
     "docker:local": "docker image prune -f && docker-compose down && docker-compose up --build --remove-orphans",
     "docker:local:not-api": "docker image prune -f && docker-compose down && docker-compose up --scale api=0 --build",
     "docker:local:ui": "docker image prune -f && docker-compose down && docker-compose up ui --build",
-    "docker:prod": "docker image prune -f && docker-compose -f docker-compose.prod.yml down && docker-compose -f docker-compose.prod.yml up --build",
+    "docker:prod": "docker image prune -f && docker-compose -f docker-compose.prod.yml down && docker-compose -f docker-compose.prod.yml --env-file .env.staging up --build",
     "docker:services": "docker image prune -f && docker-compose down && docker-compose up mongodb sonarqube",
     "docker:prune": "docker image prune -f"
   },
