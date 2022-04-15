@@ -4,7 +4,7 @@ export const useUserStore = defineStore('user', () => {
   /**
    * Current name of the user.
    */
-  const savedName = ref('')
+  const savedName = ref<string>('')
   const previousNames = ref(new Set<string>())
 
   const usedNames = computed(() => Array.from(previousNames.value))

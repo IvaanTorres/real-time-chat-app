@@ -11,8 +11,8 @@ console.log('Connected to', URL)
 console.log('MODE: ', import.meta.env.MODE)
 
 // Event listener on any emit
-socket.onAny((event, ...args) => {
+/* socket.onAny((event, ...args) => {
   console.log(event, args)
-})
+}) */
 
 export default socket
