@@ -17,7 +17,6 @@ const user = useUserStore()
 
 const username = ref(user.savedName)
 
-console.log(props.data.user, username.value)
 const isMyMessage = () => props.data.user === username.value ? 'text-right' : 'text-left'
 </script>
 

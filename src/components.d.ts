@@ -8,6 +8,7 @@ declare module 'vue' {
     FormDashboard: typeof import('./components/FormDashboard/FormDashboard.vue')['default']
     Loader: typeof import('./components/Loader/Loader.vue')['default']
     Message: typeof import('./components/Message/Message.vue')['default']
+    Tag: typeof import('./components/Tag/Tag.vue')['default']
   }
 }
 

@@ -25,27 +25,6 @@ const logout = () => {
   socket.disconnected && router.push('/auth/login')
 }
 /**
- * Display the welcome message received from the server
- * @param {string} msg -  The message to display.
- */
-socket.off(server.WELCOME).on(server.WELCOME, (msg: string) => {
-  console.log(msg)
-})
-/**
- * Display the new user connection message received from the server
- * @param {string} msg -  The message to display.
- */
-socket.off(server.USER_CONNECTION).on(server.USER_CONNECTION, (msg: string) => {
-  console.log(msg)
-})
-/**
- * Display the welcome message received from the server
- * @param {string} msg -  The message to display.
- */
-socket.off(server.USER_DISCONNECTION).on(server.USER_DISCONNECTION, (msg: string) => {
-  console.log(msg)
-})
-/**
  * Display the disconnection message received from the server
  * @param {string} reason -  The reason why the client has been disconnected.
  */
