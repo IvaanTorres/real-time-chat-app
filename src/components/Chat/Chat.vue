@@ -4,6 +4,7 @@ import type Message from '~/models/Message'
 import socket from '~/sockets/socket'
 import server from '~/utils/events.server'
 
+const isLoading = ref<Boolean>(true)
 const messagesList = ref<Message[]>([])
 
 /**
@@ -14,6 +15,8 @@ socket.off(server.LOAD_MESSAGES).on(server.LOAD_MESSAGES, (data: Message[]) => {
   console.log('Messages loaded (response from the server)', data)
   // Set the stored messages to the list
   messagesList.value = data
+  // Set the loading state to false
+  isLoading.value = false
 })
 
 /**
@@ -29,6 +32,7 @@ socket.off(server.SAVED_MESSAGE).on(server.SAVED_MESSAGE, (data: Message) => {
 
 <template>
   <div>
+    <Loader v-if="isLoading" />
     <div v-for="message in messagesList" :key="message._id">
       <Message :data="message" />
     </div>

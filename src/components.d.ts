@@ -5,9 +5,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Chat: typeof import('./components/Chat/Chat.vue')['default']
-    Counter: typeof import('./components/Counter.vue')['default']
-    Footer: typeof import('./components/Footer.vue')['default']
     FormDashboard: typeof import('./components/FormDashboard/FormDashboard.vue')['default']
+    Loader: typeof import('./components/Loader/Loader.vue')['default']
     Message: typeof import('./components/Message/Message.vue')['default']
   }
 }
