@@ -9,8 +9,6 @@ const router = useRouter()
 // Use the user store
 const user = useUserStore()
 
-const username = ref(user.savedName)
-
 /**
  * Connect to the socket when the component is mounted
  */
@@ -22,23 +20,28 @@ onMounted(() => {
  */
 const logout = () => {
   socket.disconnect()
-  socket.disconnected && router.push('/auth/login')
 }
+
+/**
+ * Listen to the server connection event
+ */
+socket.off(server.CONNECT).on(server.CONNECT, () => {
+  user.isConnected = true
+})
+
 /**
  * Display the disconnection message received from the server
  * @param {string} reason -  The reason why the client has been disconnected.
  */
 socket.off(server.DISCONNECT).on(server.DISCONNECT, (reason: string) => {
-  console.log('Goodbye !')
+  user.isConnected = false
+  router.push('/auth/login')
   // Reconnect if the disconnection comes from the socket server
   if (reason === 'io server disconnect') socket.connect()
 })
 </script>
 
 <template>
-  <h2 sm="text-black mb-5" dark="text-white">
-    Welcome {{ username }} !
-  </h2>
   <div sm="w-full bg-gray-200 min-h-52" role="chat">
     <div sm="text-black" role="msg">
       <h3 sm="text-3xl mb-2">
@@ -59,5 +62,5 @@ socket.off(server.DISCONNECT).on(server.DISCONNECT, (reason: string) => {
 
 <route lang="yaml">
 meta:
-  layout: auth
+  layout: dashboard
 </route>

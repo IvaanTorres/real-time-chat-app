@@ -10,7 +10,7 @@ const messageBody = ref<string>('')
 const send = () => {
   if (messageBody.value) {
     const message: Message = {
-      user: user.savedName,
+      user: user.name,
       body: messageBody.value,
       createdAt: new Date(),
       updatedAt: new Date(),
