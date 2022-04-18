@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     BoardInfo: typeof import('./components/BoardInfo/BoardInfo.vue')['default']
+    BoardUsers: typeof import('./components/BoardUsers/BoardUsers.vue')['default']
     Chat: typeof import('./components/Chat/Chat.vue')['default']
     ConnectionStatus: typeof import('./components/ConnectionStatus/ConnectionStatus.vue')['default']
     FormDashboard: typeof import('./components/FormDashboard/FormDashboard.vue')['default']

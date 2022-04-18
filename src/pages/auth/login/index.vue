@@ -1,14 +1,22 @@
 
 <script lang="ts" setup>
+import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
 // Use router
 const router = useRouter()
-// use the user store
+// Use the user store
 const user = useUserStore()
-/**
- * Push to dashboard
- */
-const go = () => router.push('/dashboard/')
+// The reactive username
+const username = ref<string>('')
+
+// Redirect to the dashboard, setting the auth values
+const go = () => {
+  if (username.value) {
+    user.name = username.value
+    socket.auth = { username: user.name }
+    router.push('/dashboard')
+  }
+}
 </script>
 
 <template>
@@ -18,7 +26,7 @@ const go = () => router.push('/dashboard/')
     </h1>
     <br>
     <label sm="text-white" dark="text-black" for="user">User:</label><br>
-    <input id="user" v-model="user.name" sm="text-black p-1" type="text" name="user" @keydown.enter="go"><br>
+    <input id="user" v-model="username" sm="text-black p-1" type="text" name="user" @keydown.enter="go"><br>
     <input sm="bg-white mt-5 px-5 text-black" type="submit" value="Login" @click="go">
   </div>
 </template>

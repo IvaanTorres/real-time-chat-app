@@ -14,9 +14,10 @@ const props = defineProps({
 
 // Use the user store
 const user = useUserStore()
-
+// The user name
 const username = ref(user.name)
 
+// Check if the message is from the user and style it accordingly
 const isMyMessage = () => props.data.user === username.value ? 'text-right' : 'text-left'
 </script>
 

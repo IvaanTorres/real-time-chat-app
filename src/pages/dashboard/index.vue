@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-/* eslint-disable no-console */
 import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
 import server from '~/utils/events.server'
@@ -9,21 +8,31 @@ const router = useRouter()
 // Use the user store
 const user = useUserStore()
 
-/**
- * Connect to the socket when the component is mounted
- */
+// Connect when the component is mounted
 onMounted(() => {
   socket.connect()
 })
+
 /**
  * Go back to the login page and disconnect from the socket
  */
 const logout = () => {
+  router.push('/auth/login')
   socket.disconnect()
+  user.reset()
 }
 
 /**
- * Listen to the server connection event
+ * If there is a connection error, go to the login page and disconnect
+ * @param {Error} err - The error object
+ */
+socket.on('connect_error', (err: Error) => {
+  if (err.message === 'Invalid username') console.error(err.message)
+  logout()
+})
+
+/**
+ * Set the user connection state to true
  */
 socket.off(server.CONNECT).on(server.CONNECT, () => {
   user.isConnected = true
@@ -34,8 +43,8 @@ socket.off(server.CONNECT).on(server.CONNECT, () => {
  * @param {string} reason -  The reason why the client has been disconnected.
  */
 socket.off(server.DISCONNECT).on(server.DISCONNECT, (reason: string) => {
-  user.isConnected = false
   router.push('/auth/login')
+  user.reset()
   // Reconnect if the disconnection comes from the socket server
   if (reason === 'io server disconnect') socket.connect()
 })
