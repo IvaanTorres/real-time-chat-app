@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+/* eslint-disable no-console */
 import type Message from '~/models/Message'
 import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
@@ -12,16 +13,19 @@ const messageBody = ref<string>('')
 const messageInput = ref<HTMLInputElement>()
 
 // Autofocus the input element to start typing
-onMounted(() => messageInput.value!.focus())
-
+onMounted(() => {
+  messageInput.value!.focus()
+})
 // Send the message when the user presses enter or click on the send button
 const send = () => {
+  const now = new Date()
   if (messageBody.value) {
     const message: Message = {
       user: user.name,
       body: messageBody.value,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      // TODO: See how to get the current date
+      createdAt: now,
+      updatedAt: now,
     }
     // Send the message to the server
     socket.emit(client.MESSAGE, message)

@@ -18,7 +18,7 @@ const users = ref<User[]>([])
  * Set up the users list
  * @param {User[]} usersList - The users list
  */
-socket.off('server:users').on('server:users', (usersList: User[]) => {
+socket.off(server.USERS).on(server.USERS, (usersList: User[]) => {
   users.value = usersList
 })
 

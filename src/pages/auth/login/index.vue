@@ -8,7 +8,6 @@ const router = useRouter()
 const user = useUserStore()
 // The reactive username
 const username = ref<string>('')
-
 // Redirect to the dashboard, setting the auth values
 const go = () => {
   if (username.value) {
@@ -27,7 +26,9 @@ const go = () => {
     <br>
     <label sm="text-white" dark="text-black" for="user">User:</label><br>
     <input id="user" v-model="username" sm="text-black p-1" type="text" name="user" @keydown.enter="go"><br>
-    <input sm="bg-white mt-5 px-5 text-black" type="submit" value="Login" @click="go">
+    <button sm="bg-white mt-5 px-5 text-black" @click="go">
+      Login
+    </button>
   </div>
 </template>
 

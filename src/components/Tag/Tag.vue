@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-/* eslint-disable no-console */
-
 import type { PropType } from 'vue'
 import type Tag from '~/models/Tag'
 

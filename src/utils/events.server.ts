@@ -4,6 +4,7 @@ const server = {
   USER_DISCONNECTION: 'server:user-disconnection',
   SAVED_MESSAGE: 'server:saved-message',
   LOAD_MESSAGES: 'server:load-messages',
+  USERS: 'server:users',
   CONNECT: 'connect',
   DISCONNECT: 'disconnect',
 }

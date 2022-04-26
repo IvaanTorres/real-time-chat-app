@@ -17,9 +17,9 @@ onMounted(() => {
  * Go back to the login page and disconnect from the socket
  */
 const logout = () => {
-  router.push('/auth/login')
   socket.disconnect()
   user.reset()
+  router.push('/auth/login')
 }
 
 /**

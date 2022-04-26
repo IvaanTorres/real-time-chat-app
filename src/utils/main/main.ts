@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type Message from '~/models/Message'
 import type Tag from '~/models/Tag'
 
@@ -7,7 +8,7 @@ import type Tag from '~/models/Tag'
  * @param {Date} date - The date.
  * @returns {Date} - The date in Date format.
  */
-export const toDate = (date: Date): Date => new Date(date.toLocaleString())
+export const toDate = (date: Date): Date => new Date(date.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }))
 
 /**
  * Add a preffix to some value in case it has less than 2 digits.
@@ -37,7 +38,7 @@ export const getDate = (date: Date, separator: string): string => {
  * @returns {string} The time formatted.
  */
 export const getTime = (date: Date, separator: string): string => {
-  date = toDate(date)
+  date = toDate(date) // TODO: Set the spanish timezone. The time changes alone
   return `${addPreffix(date.getHours(), '0')}${separator}${addPreffix(date.getMinutes(), '0')}`
 }
 
