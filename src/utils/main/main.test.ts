@@ -2,7 +2,7 @@ import { addPreffix, firstToLast, getDate, getTime, isMessage, noMessages, toDat
 import type Message from '~/models/Message'
 import type Tag from '~/models/Tag'
 
-describe('main utils', () => {
+describe.todo('main utils', () => {
   describe('should get formatted local date from date', () => {
     test('less than 10', () => {
       const date = new Date('2020-01-01T00:00:00.000Z')
