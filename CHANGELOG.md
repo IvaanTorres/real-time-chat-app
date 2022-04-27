@@ -5,19 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is partially based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## **[v1.0.0] - 2022-04-27**
+- ### **CI**
+  - [2022-04-13] Set mongodb local in docker development and production environments ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/4e570f421734d08484c596a6b8a245278612e801)) 
+
+- ### **Test**
+  - [2022-04-27] Add unit tests (utils and components behavior) ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/3efd7376181759790e1a603b123ed53234010744)) 
+  - [2022-04-27] Check why VITE_API_URL is undefined, trying with github secret ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/4ff36e93acd0763862df88d173154639b394bdc1)) 
+  - [2022-04-27] Check why VITE_API_URL is undefined, trying with action env variable ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/71eb26a506fab9d06436124a010ed5a407b48a9c)) 
+  - [2022-04-27] Skip tests that may fail (related to date and time) ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/44db8e7b8fe4223124311aee6d8f3cfa1b0bd6d1)) 
+
+- ### **Feat**
+  - [2022-04-15] Send and display messages ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/ddadd014844915fa7e5c89ba337f01351dfd40a1)) 
+  - [2022-04-15] Create the component Loader ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/2a50c3512f478ba871c49c7b8dc57496eecb2db4)) 
+  - [2022-04-15] Create the component Tag and show the connection messages ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/cd0c4dff07ad2320d126bc5476fd7d32be092427)) 
+  - [2022-04-17] Create the component BoardInfo and set the store using local storage ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/4043d0891b4f767bf3d49a297cf70e35e0999ace)) 
+  - [2022-04-18] Create the board with the current connected users ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/50dcc2349cc589f971159c23817525891bba6750)) 
+
+
 ## **[v0.1.1] - 2022-04-13**
 - ### **Chore**
-  - [2022-03-11] Set MongoDB Atlas in PROD mode and Docker PROD mode ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/2e54483306a251a99a43f061a2ad74b208d24ed1)) 
+  - [2022-04-11] Set MongoDB Atlas in PROD mode and Docker PROD mode ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/2e54483306a251a99a43f061a2ad74b208d24ed1)) 
   
 - ### **Fix**
-  - [2022-03-11] Remove ENV reader from the pipeline ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/82f2d2d09b3f2b04bfa4f534c7706518232edb77)) 
-  - [2022-03-12] Cannot switch between mongodb and mongodb atlas according to the environment ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/6966d530642455ccc2ab493c587d858dc1de7bb8)) 
-  - [2022-03-12] The VITE_API_URL env variable is undefined when the actions pipeline runs ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/10883b036a5e0ee5dc82c5280166cb231be58152)) 
-  - [2022-03-12] The VITE_API_URL env variable is undefined when the actions pipeline runs ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/fe295661e0a422cc1aa037097732a65cb60547cb)) 
-  - [2022-03-12] The VITE_API_URL env variable is undefined when the actions pipeline runs (fix) ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/5fc381bb409f5b02ae849d7bb922316b656d0b44)) 
+  - [2022-04-11] Remove ENV reader from the pipeline ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/82f2d2d09b3f2b04bfa4f534c7706518232edb77)) 
+  - [2022-04-12] Cannot switch between mongodb and mongodb atlas according to the environment ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/6966d530642455ccc2ab493c587d858dc1de7bb8)) 
+  - [2022-04-12] The VITE_API_URL env variable is undefined when the actions pipeline runs ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/10883b036a5e0ee5dc82c5280166cb231be58152)) 
+  - [2022-04-12] The VITE_API_URL env variable is undefined when the actions pipeline runs ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/fe295661e0a422cc1aa037097732a65cb60547cb)) 
+  - [2022-04-12] The VITE_API_URL env variable is undefined when the actions pipeline runs (fix) ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/5fc381bb409f5b02ae849d7bb922316b656d0b44)) 
   
 - ### **CI**
-  - [2022-03-11] Set the current APP versions in ENV variables ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/f892d3cee4d429562e0b6c611c0df45135275bee)) 
+  - [2022-04-11] Set the current APP versions in ENV variables ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/f892d3cee4d429562e0b6c611c0df45135275bee)) 
 
 ## **[v0.1.0] - 2022-04-10**
 

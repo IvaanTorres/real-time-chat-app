@@ -1,8 +1,8 @@
-# Thunder Link (v0.1.1) -  A Real-time Chat App
+# Thunder Link (v1.0.0) -  A Real-time Chat App
 
 This is the Thunder Link UI APP. It uses the Sockets API APP.
 
-Link to the project in production: [thunder-link.herokuapp.com](http://thunder-link.herokuapp.com/)
+Link to the project in production: [thunder-link.herokuapp.com](http://thunder-link.herokuapp.com)
 
 ## Features
 
