@@ -22,7 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - [2022-04-17] Create the component BoardInfo and set the store using local storage ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/4043d0891b4f767bf3d49a297cf70e35e0999ace)) 
   - [2022-04-18] Create the board with the current connected users ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/50dcc2349cc589f971159c23817525891bba6750)) 
 
-
+- ### **Docs**
+  - [2022-04-27] Create new release (v1.0.0) ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/0404aed29dc7d5d28d114552b76156db95501f33)) 
+  
 ## **[v0.1.1] - 2022-04-13**
 - ### **Chore**
   - [2022-04-11] Set MongoDB Atlas in PROD mode and Docker PROD mode ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/2e54483306a251a99a43f061a2ad74b208d24ed1)) 
