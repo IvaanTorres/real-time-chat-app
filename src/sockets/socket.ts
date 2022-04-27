@@ -2,7 +2,6 @@
 import { io } from 'socket.io-client'
 import { VITE_API_PORT, VITE_API_URL } from '../config'
 
-console.log(import.meta.env.VITE_API_URL)
 // Sockets API URL
 const URL = VITE_API_URL.includes('localhost') ? `${VITE_API_URL}:${VITE_API_PORT}` : `${VITE_API_URL}`
 

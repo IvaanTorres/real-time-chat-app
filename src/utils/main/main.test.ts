@@ -2,7 +2,7 @@ import { addPreffix, firstToLast, getDate, getTime, isMessage, noMessages, toDat
 import type Message from '~/models/Message'
 import type Tag from '~/models/Tag'
 
-describe.todo('main utils', () => {
+describe('main utils', () => {
   describe('should get formatted local date from date', () => {
     test('less than 10', () => {
       const date = new Date('2020-01-01T00:00:00.000Z')
@@ -137,7 +137,7 @@ describe.todo('main utils', () => {
     })
   })
 
-  describe('should convert a date to a another date with the timezone set', () => {
+  describe.todo('should convert a date to a another date with the timezone set', () => {
     test('spanish timezone', () => {
       const date = new Date('2020-01-01T10:00:00.000Z')
       const convertedDate = toDate(date)
