@@ -2,12 +2,13 @@
 import { convertLocale } from '~/utils/i18n/i18n'
 
 const { availableLocales, t, locale } = useI18n()
-const onHover = ref<boolean>(false)
+const isOpen = ref<boolean>(false)
 
 onMounted(() => { localStorage.setItem('preferredLocale', locale.value) })
 
-const showDropDown = () => onHover.value = true
-const hideDropdown = () => onHover.value = false
+const showDropDown = () => isOpen.value = true
+const hideDropdown = () => isOpen.value = false
+const toggleDropdown = () => isOpen.value = !isOpen.value
 
 const changeLocale = (localeSelected: string) => {
   locale.value = localeSelected
@@ -18,15 +19,20 @@ const changeLocale = (localeSelected: string) => {
 </script>
 
 <template>
-  <div class="relative min-w-32" @mouseenter="showDropDown" @mouseleave="hideDropdown">
-    <button>
-      <img class="w-7 inline mr-2" src="https://img.icons8.com/ios/50/000000/translation.png">
-      {{ t('intl.title') }}
+  <div
+    class="relative min-w-32 z-1"
+    @mouseenter="showDropDown" @mouseleave="hideDropdown"
+  >
+    <button @click="toggleDropdown">
+      <LangIcon class="inline w-8 mr-2" />
+      <span class="font-medium" dark="text-white">{{ t('intl.title') }}</span>
     </button>
-    <div v-if="onHover" class="absolute w-full pt-5 shadow-xl">
+    <div v-if="isOpen" class="absolute w-full pt-2 shadow-xl">
+      <div class="arrow-up" dark="border-b-purple-200 " />
       <div
         v-for="lang in availableLocales" :key="`locale-${lang}`"
-        class="bg-gray-100 border border-gray-300 py-1 cursor-pointer"
+        class="bg-white border border-gray-300 py-1 cursor-pointer"
+        dark="bg-purple-200 border-purple-300"
         hover="bg-purple-500 text-white"
         @click="changeLocale(lang)"
       >
@@ -35,3 +41,16 @@ const changeLocale = (localeSelected: string) => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black;
+  position: absolute;
+  transform: translateY(-100%);
+  right: calc(50% - 10px);
+}
+</style>

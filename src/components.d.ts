@@ -9,6 +9,7 @@ declare module 'vue' {
     Chat: typeof import('./components/Chat/Chat.vue')['default']
     ConnectionStatus: typeof import('./components/ConnectionStatus/ConnectionStatus.vue')['default']
     FormDashboard: typeof import('./components/FormDashboard/FormDashboard.vue')['default']
+    LangIcon: typeof import('./components/LangIcon/LangIcon.vue')['default']
     Loader: typeof import('./components/Loader/Loader.vue')['default']
     Message: typeof import('./components/Message/Message.vue')['default']
     NavBar: typeof import('./components/NavBar/NavBar.vue')['default']
