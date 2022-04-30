@@ -70,23 +70,3 @@ export const firstToLast = (arr: Array<any>) => {
   arr.shift()
   arr.push(first)
 }
-
-/**
- * Set the locale of the application.
- *
- * @returns {string} - The current locale.
- */
-export const getLocale = (): string => {
-  let preferredLocale
-
-  // Try to get locale from local storage
-  if (localStorage.getItem('preferredLocale') !== undefined)
-    preferredLocale = localStorage.getItem('preferredLocale')!
-
-  // If the locale is not set, try to get it from the browser (It's the first time the user is using the app)
-  else
-    preferredLocale = navigator.language
-
-  // In case the locale is not supported, use English
-  return preferredLocale || 'en'
-}
