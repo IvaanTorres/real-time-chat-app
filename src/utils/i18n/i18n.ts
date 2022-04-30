@@ -13,7 +13,7 @@ export const getLocale = (): string => {
     preferredLocale = localStorage.getItem('preferredLocale')!
 
   // If the locale is not set, try to get it from the browser (It's the first time the user is using the app)
-  else
+  else if (typeof window !== 'undefined')
     preferredLocale = navigator.language
 
   // In case the locale is not supported, use English
