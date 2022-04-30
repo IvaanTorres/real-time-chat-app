@@ -11,6 +11,9 @@ declare module 'vue' {
     FormDashboard: typeof import('./components/FormDashboard/FormDashboard.vue')['default']
     Loader: typeof import('./components/Loader/Loader.vue')['default']
     Message: typeof import('./components/Message/Message.vue')['default']
+    NavBar: typeof import('./components/NavBar/NavBar.vue')['default']
+    SelectButton: typeof import('./components/SelectButton/SelectButton.vue')['default']
+    SwitchButton: typeof import('./components/SwitchButton/SwitchButton.vue')['default']
     Tag: typeof import('./components/Tag/Tag.vue')['default']
   }
 }
