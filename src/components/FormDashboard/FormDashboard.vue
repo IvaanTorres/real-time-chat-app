@@ -3,7 +3,7 @@
 import type Message from '~/models/Message'
 import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
-import client from '~/utils/events.client'
+import { events } from '~/enums'
 
 // Use the user store
 const user = useUserStore()
@@ -28,7 +28,7 @@ const send = () => {
       updatedAt: now,
     }
     // Send the message to the server
-    socket.emit(client.MESSAGE, message)
+    socket.emit(events.client.MESSAGE, message)
     // Reset the message body
     messageBody.value = ''
   }

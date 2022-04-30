@@ -4,7 +4,7 @@ import type Tag from '~/models/Tag'
 import type User from '~/models/User'
 import socket from '~/sockets/socket'
 import { useChatStore } from '~/stores/chat'
-import server from '~/utils/events.server'
+import { events } from '~/enums'
 import { firstToLast, isMessage, noMessages } from '~/utils/main/main'
 
 // Use the chat store
@@ -21,7 +21,7 @@ onMounted(() => {
  * Add the tag object of welcome to the chat.
  * @param {User} user - The user instance.
  */
-socket.off(server.WELCOME).on(server.WELCOME, (user: User) => {
+socket.off(events.server.WELCOME).on(events.server.WELCOME, (user: User) => {
   const newTag: Tag = {
     _id: user.id,
     message: `Welcome ${user.username}`,
@@ -33,7 +33,7 @@ socket.off(server.WELCOME).on(server.WELCOME, (user: User) => {
  * Set the stored messages to the chat.
  * @param {Message[]} data - The stored messages.
  */
-socket.off(server.LOAD_MESSAGES).on(server.LOAD_MESSAGES, (data: Message[]) => {
+socket.off(events.server.LOAD_MESSAGES).on(events.server.LOAD_MESSAGES, (data: Message[]) => {
   // Set the stored messages to the list
   chat.push(...data)
   // Put the welcome message to the end of the chat
@@ -46,7 +46,7 @@ socket.off(server.LOAD_MESSAGES).on(server.LOAD_MESSAGES, (data: Message[]) => {
  * Add the saved message to the chat.
  * @param {Message} data - The stored message.
  */
-socket.off(server.SAVED_MESSAGE).on(server.SAVED_MESSAGE, (data: Message) => {
+socket.off(events.server.SAVED_MESSAGE).on(events.server.SAVED_MESSAGE, (data: Message) => {
   if (!isLoading.value) {
     // Add the message to the chat after it has been stored
     chat.push(data)

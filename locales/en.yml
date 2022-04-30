@@ -1,3 +1,5 @@
+intl:
+  title: 'Select language'
 button:
   about: About
   back: Back

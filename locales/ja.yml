@@ -1,3 +1,5 @@
+intl:
+  title: '言語を選択する'
 button:
   about: これは？
   back: 戻る

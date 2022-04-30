@@ -5,7 +5,7 @@ import type User from '~/models/User'
 import socket from '~/sockets/socket'
 import { useChatStore } from '~/stores/chat'
 import { useUserStore } from '~/stores/user'
-import server from '~/utils/events.server'
+import { events } from '~/enums'
 
 // Use the chat store
 const { chat } = useChatStore()
@@ -18,7 +18,7 @@ const users = ref<User[]>([])
  * Set up the users list
  * @param {User[]} usersList - The users list
  */
-socket.off(server.USERS).on(server.USERS, (usersList: User[]) => {
+socket.off(events.server.USERS).on(events.server.USERS, (usersList: User[]) => {
   users.value = usersList
 })
 
@@ -28,7 +28,7 @@ socket.off(server.USERS).on(server.USERS, (usersList: User[]) => {
  *
  * @param {User} newUser - The tag object.
  */
-socket.off(server.USER_CONNECTION).on(server.USER_CONNECTION, (newUser: User) => {
+socket.off(events.server.USER_CONNECTION).on(events.server.USER_CONNECTION, (newUser: User) => {
   const newTag: Tag = {
     _id: newUser.id,
     message: `The user ${newUser.username} has connected`,
@@ -45,7 +45,7 @@ socket.off(server.USER_CONNECTION).on(server.USER_CONNECTION, (newUser: User) =>
  *
  * @param {User} userDisconnected - The disconnected user instance.
  */
-socket.off(server.USER_DISCONNECTION).on(server.USER_DISCONNECTION, (userDisconnected: User) => {
+socket.off(events.server.USER_DISCONNECTION).on(events.server.USER_DISCONNECTION, (userDisconnected: User) => {
   const newTag: Tag = {
     _id: userDisconnected.id,
     message: `The user ${userDisconnected.username} has disconnected`,

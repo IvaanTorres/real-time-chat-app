@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
-import server from '~/utils/events.server'
+import { events } from '~/enums'
 
 // Use router
 const router = useRouter()
@@ -34,7 +34,7 @@ socket.on('connect_error', (err: Error) => {
 /**
  * Set the user connection state to true
  */
-socket.off(server.CONNECT).on(server.CONNECT, () => {
+socket.off(events.server.CONNECT).on(events.server.CONNECT, () => {
   user.isConnected = true
 })
 
@@ -42,7 +42,7 @@ socket.off(server.CONNECT).on(server.CONNECT, () => {
  * Display the disconnection message received from the server
  * @param {string} reason -  The reason why the client has been disconnected.
  */
-socket.off(server.DISCONNECT).on(server.DISCONNECT, (reason: string) => {
+socket.off(events.server.DISCONNECT).on(events.server.DISCONNECT, (reason: string) => {
   router.push('/auth/login')
   user.reset()
   // Reconnect if the disconnection comes from the socket server
