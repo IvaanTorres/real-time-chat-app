@@ -49,13 +49,6 @@ describe('<Dashboard />', () => {
     expect(wrapper).toBeTruthy()
   })
 
-  test('should show the loading message', () => {
-    const user = useUserStore()
-    user.name = 'John Doe'
-
-    expect(wrapper.find('p').text()).toBe('Loading messages...')
-  })
-
   test('should logout', async() => {
     const user = useUserStore()
     const logoutAction = vi.spyOn(router, 'push')

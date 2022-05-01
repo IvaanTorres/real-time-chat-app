@@ -58,11 +58,13 @@ socket.off(events.server.USER_DISCONNECTION).on(events.server.USER_DISCONNECTION
 </script>
 
 <template>
-  <h2>Users connected:</h2>
-  <div v-if="!users.length">
-    There are not users connected
-  </div>
-  <div v-for="_user in users" :key="_user.id">
-    {{ _user.username }}
+  <div>
+    <h2>Users connected:</h2>
+    <div v-if="!users.length">
+      There are not users connected
+    </div>
+    <div v-for="_user in users" :key="_user.id">
+      {{ _user.username }}
+    </div>
   </div>
 </template>

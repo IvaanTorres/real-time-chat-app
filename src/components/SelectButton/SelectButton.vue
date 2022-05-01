@@ -23,12 +23,12 @@ const changeLocale = (localeSelected: string) => {
     class="relative min-w-32 z-1"
     @mouseenter="showDropDown" @mouseleave="hideDropdown"
   >
-    <button @click="toggleDropdown">
+    <div class="cursor-pointer" @click="toggleDropdown">
       <LangIcon class="inline w-8 mr-2" />
       <span class="font-medium" dark="text-white">{{ t('intl.title') }}</span>
-    </button>
+    </div>
     <div v-if="isOpen" class="absolute w-full pt-2 shadow-xl">
-      <div class="arrow-up" dark="border-b-purple-200 " />
+      <div class="arrow-up dark:border-b-purple-200" />
       <div
         v-for="lang in availableLocales" :key="`locale-${lang}`"
         class="bg-white border border-gray-300 py-1 cursor-pointer"

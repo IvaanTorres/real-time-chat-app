@@ -36,19 +36,19 @@ const send = () => {
 </script>
 
 <template>
-  <form sm="w-full flex" @submit.prevent="send">
+  <form class="w-full flex justify-between gap-2" @submit.prevent="send">
     <input
       ref="messageInput"
       v-model="messageBody"
-      sm="w-full p-5 text-black bg-gray-300"
+      class="w-full p-5 text-black bg-gray-300 rounded-full"
       dark="bg-gray-600 text-white"
       type="text"
       placeholder="Type your message here"
     >
     <button
-      sm="bg-red-500 text-black min-w-30 hover:bg-red-700"
+      class="flex justify-center items-center bg-purple-700 text-white min-w-10 px-4  rounded-full transition ease duration-200 hover:bg-purple-800"
     >
-      Send
+      <SendMessageIcon class="fill-white max-w-10 max-h-10" />
     </button>
   </form>
 </template>

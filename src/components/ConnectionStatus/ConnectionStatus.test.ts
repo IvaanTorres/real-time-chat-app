@@ -35,7 +35,7 @@ describe('<ConnectionStatus />', () => {
       const span = wrapper.get('span').element
 
       expect(wrapper.find('p').text()).toBe('Offline')
-      expect(span.getAttribute('sm')).toContain(['bg-red-500'])
+      expect(span.getAttribute('class')).toContain(['bg-red-500'])
     })
 
     test('should show the online status', () => {
@@ -47,7 +47,7 @@ describe('<ConnectionStatus />', () => {
       const span = wrapper.get('span').element
 
       expect(wrapper.find('p').text()).toBe('Online')
-      expect(span.getAttribute('sm')).toContain(['bg-green-500'])
+      expect(span.getAttribute('class')).toContain(['bg-green-500'])
     })
   })
 })

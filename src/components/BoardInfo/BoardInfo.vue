@@ -7,8 +7,11 @@ const user = useUserStore()
 </script>
 
 <template>
-  <div sm="flex justify-between bg-red-400">
-    <p>Welcome - {{ user.name }}</p>
+  <div
+    class="flex justify-between w-full bg-white text-black py-1 px-2 rounded-lg mb-5"
+    dark="bg-purple-200"
+  >
+    <p>{{ user.name }}</p>
     <ConnectionStatus :is-connected="user.isConnected" />
   </div>
 </template>

@@ -14,6 +14,7 @@ declare module 'vue' {
     Message: typeof import('./components/Message/Message.vue')['default']
     NavBar: typeof import('./components/NavBar/NavBar.vue')['default']
     SelectButton: typeof import('./components/SelectButton/SelectButton.vue')['default']
+    SendMessageIcon: typeof import('./components/SendMessageIcon/SendMessageIcon.vue')['default']
     SwitchButton: typeof import('./components/SwitchButton/SwitchButton.vue')['default']
     Tag: typeof import('./components/Tag/Tag.vue')['default']
   }

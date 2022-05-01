@@ -9,8 +9,12 @@ body,
   padding: 0;
 }
 
-html.dark {
+/* html.dark {
   background: #121212;
+} */
+
+*:focus {
+  outline: none;
 }
 
 #nprogress {
@@ -18,7 +22,7 @@ html.dark {
 }
 
 #nprogress .bar {
-  background: rgb(13,148,136);
+  background: rgb(58, 18, 122);
   opacity: 0.75;
   position: fixed;
   z-index: 1031;

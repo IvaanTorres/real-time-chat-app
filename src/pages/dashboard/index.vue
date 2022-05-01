@@ -51,25 +51,41 @@ socket.off(events.server.DISCONNECT).on(events.server.DISCONNECT, (reason: strin
 </script>
 
 <template>
-  <div sm="w-full bg-gray-200 min-h-52" role="chat">
-    <div sm="text-black" role="msg">
-      <h3 sm="text-3xl mb-2">
-        Messages
+  <div
+    class="flex flex-col-reverse gap-5 w-auto min-h-52"
+    lg="mx-15 flex-row gap-20" role="chat"
+  >
+    <div
+      class="w-full bg-dark-300 text-white p-3 rounded-lg drop-shadow-2xl"
+      lg="w-1/3"
+      role="connectionInfo"
+    >
+      <BoardInfo />
+      <BoardUsers />
+      <!-- Logout button -->
+      <button
+        class="bg-purple-700 mt-5 p-1 px-5 text-white rounded-lg hover:bg-purple-800"
+        dark="bg-purple-200 text-black transition ease duration-200 hover:bg-purple-500 hover:text-white"
+        @click="logout"
+      >
+        Logout
+      </button>
+    </div>
+    <div
+      class="w-full text-black bg-white rounded-lg p-2 pt-5 pb-3 drop-shadow-2xl"
+      dark="bg-purple-200"
+      role="chat"
+    >
+      <h3 class="text-3xl mb-2">
+        General chat
       </h3>
       <Chat />
+      <FormDashboard />
     </div>
-    <FormDashboard />
   </div>
-  <button
-    sm="bg-gray-700 mt-5 p-1 px-5 text-white"
-    dark="bg-white text-black"
-    @click="logout"
-  >
-    Logout
-  </button>
 </template>
 
 <route lang="yaml">
 meta:
-  layout: dashboard
+  layout: default
 </route>
