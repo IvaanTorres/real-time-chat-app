@@ -27,14 +27,18 @@ const isMyMessage = () => props.data.user === user.name
   >
     <div
       role="message-body"
-      class="pr-5 pl-10 py-3 rounded-full border-2 drop-shadow-xl shadow-black"
+      class="px-10 py-3 rounded-full border-2 drop-shadow-xl shadow-black"
       :class="isMyMessage()
         ? 'rounded-br-none bg-purple-700 text-white border-purple-900'
         : 'rounded-bl-none bg-gray-100 text-black border-gray-300 dark:bg-gray-50'"
     >
       {{ props.data.body }}
     </div>
-    <div role="message-info" class="text-xs text-right mt-1">
+    <div
+      role="message-info"
+      class="text-xs mt-1"
+      :class="isMyMessage() ? 'text-right' : 'text-left'"
+    >
       {{ props.data.user }} - {{ getDate(props.data.createdAt, '/') }} ({{ getTime(props.data.createdAt, ':') }})
     </div>
   </div>

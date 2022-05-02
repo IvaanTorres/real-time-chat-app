@@ -12,9 +12,18 @@ const props = defineProps({
 </script>
 
 <template>
-  <div>
-    <p sm="text-center">
-      {{ props.data.message }}
-    </p>
+  <div
+    md="w-auto"
+    class="m-auto block w-full"
+  >
+    <div
+      class="flex justify-between items-center gap-10 text-center bg-dark-300 text-white py-2 px-10"
+    >
+      <span>-</span>
+      <p>
+        {{ props.data.message }}
+      </p>
+      <span>-</span>
+    </div>
   </div>
 </template>
