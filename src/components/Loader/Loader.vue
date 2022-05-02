@@ -1,9 +1,7 @@
-<script lang="ts" setup>
-
-</script>
-
 <template>
   <div>
-    <p>Loading messages...</p>
+    <p role="loader">
+      Loading messages...
+    </p>
   </div>
 </template>

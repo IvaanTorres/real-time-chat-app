@@ -2,7 +2,7 @@ import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { spyOn } from 'vitest'
 import TagComp from './Tag.vue'
-import type Tag from '~/models/Tag'
+import { tag } from '~/__mocks__/tag'
 
 beforeAll(() => {
   // Remove the warning messages
@@ -11,14 +11,8 @@ beforeAll(() => {
 
 describe('<Tag />', () => {
   let wrapper: VueWrapper
-  let tag: Tag
 
   beforeAll(() => {
-    // Create a tag instance
-    tag = {
-      _id: '1',
-      message: 'Hello world',
-    }
     // Mount the component
     wrapper = mount(TagComp, {
       props: {
@@ -37,6 +31,6 @@ describe('<Tag />', () => {
   })
 
   test('should show the tag', () => {
-    expect(wrapper.find('p').text()).toBe(tag.message)
+    expect(wrapper.find('[role="tag-message"]').text()).toBe(tag.message)
   })
 })

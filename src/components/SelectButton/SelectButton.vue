@@ -20,17 +20,19 @@ const changeLocale = (localeSelected: string) => {
 
 <template>
   <div
+    role="select"
     class="relative min-w-32 z-1"
-    @mouseenter="showDropDown" @mouseleave="hideDropdown"
+    @mouseenter="showDropDown()" @mouseleave="hideDropdown()"
   >
-    <div class="cursor-pointer" @click="toggleDropdown">
+    <div class="cursor-pointer" role="select-button" @click="toggleDropdown()">
       <LangIcon class="inline w-8 mr-2" />
-      <span class="font-medium" dark="text-white">{{ t('intl.title') }}</span>
+      <span role="select-title" class="font-medium" dark="text-white">{{ t('intl.title') }}</span>
     </div>
-    <div v-if="isOpen" class="absolute w-full pt-2 shadow-xl">
+    <div v-if="isOpen" class="absolute w-full pt-2 shadow-xl" role="dropdown">
       <div class="arrow-up dark:border-b-purple-200" />
       <div
         v-for="lang in availableLocales" :key="`locale-${lang}`"
+        role="dropdown-item"
         class="bg-white border border-gray-300 py-1 cursor-pointer text-center"
         dark="bg-purple-200 border-purple-300"
         hover="bg-purple-500 text-white"

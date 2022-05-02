@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-/* eslint-disable no-console */
 import type Message from '~/models/Message'
 import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
@@ -40,6 +39,7 @@ const send = () => {
     <input
       ref="messageInput"
       v-model="messageBody"
+      role="message-input"
       class="w-full p-5 text-black bg-gray-300 rounded-full"
       dark="bg-gray-600 text-white"
       type="text"

@@ -22,6 +22,6 @@ describe('<Loader />', () => {
   })
 
   test('should show the loading message', () => {
-    expect(wrapper.find('p').text()).toBe('Loading messages...')
+    expect(wrapper.find('[role="loader"]').text()).toBe('Loading messages...')
   })
 })

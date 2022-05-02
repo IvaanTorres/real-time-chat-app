@@ -6,12 +6,6 @@ import FormDashboard from './FormDashboard.vue'
 
 // Define the pinia instance
 let pinia: TestingPinia
-// Define the router
-const router = { push: () => {} }
-// Mock the router by importing the router from the vue-router module
-vi.mock('vue-router', () => ({
-  useRouter: () => router,
-}))
 
 beforeAll(() => {
   // Remove the warning messages
@@ -31,9 +25,6 @@ describe('<FormDashboard />', () => {
   const global = {
     attachTo: document.body,
     plugins: [pinia],
-    mocks: {
-      $router: router,
-    },
   }
 
   beforeEach(async() => {
@@ -50,8 +41,8 @@ describe('<FormDashboard />', () => {
     expect(wrapper).toBeTruthy()
   })
 
-  test('should be focused the input', async() => {
-    const input = await wrapper.find('input').element
+  test('should be autofocused the input', async() => {
+    const input = await wrapper.find('[role="message-input"]').element
     // The input should be focused
     expect(input).toBe(document.activeElement)
   })

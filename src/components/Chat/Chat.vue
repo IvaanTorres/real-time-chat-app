@@ -10,7 +10,7 @@ import { firstToLast, isMessage, noMessages } from '~/utils/main/main'
 // Use the chat store
 const { chat, setChat } = useChatStore()
 // The loading state
-const isLoading = ref<Boolean>(true)
+const isLoading = ref<boolean>(true)
 
 // Reset the chat when the chat is mounted
 onMounted(() => {

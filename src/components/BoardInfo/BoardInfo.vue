@@ -11,7 +11,9 @@ const user = useUserStore()
     class="flex justify-between w-full bg-white text-black py-1 px-2 rounded-lg mb-5"
     dark="bg-purple-200"
   >
-    <p>{{ user.name }}</p>
+    <p role="username">
+      {{ user.name }}
+    </p>
     <ConnectionStatus :is-connected="user.isConnected" />
   </div>
 </template>

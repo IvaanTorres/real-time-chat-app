@@ -31,6 +31,6 @@ describe('<BoardInfo />', () => {
     user.name = 'John Doe'
 
     wrapper = mount(BoardInfo)
-    expect(wrapper.find('p').text()).toBe('John Doe')
+    expect(wrapper.find('[role="username"]').text()).toBe('John Doe')
   })
 })

@@ -19,10 +19,4 @@ describe('<BoardUsers />', () => {
     // The component should be mounted
     expect(wrapper).toBeTruthy()
   })
-
-  describe.todo('Socket events', () => {
-    test('should get the connected users', () => {
-      expect(true).toBeTruthy()
-    })
-  })
 })

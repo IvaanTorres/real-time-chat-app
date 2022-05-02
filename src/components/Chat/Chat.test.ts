@@ -9,12 +9,6 @@ import Chat from './Chat.vue'
 import { useUserStore } from '~/stores/user'
 
 let pinia: TestingPinia
-// Define the router
-const router = { push: () => {} }
-// Mock the router by importing the router from the vue-router module
-vi.mock('vue-router', () => ({
-  useRouter: () => router,
-}))
 
 beforeAll(() => {
   // Remove the warning messages
@@ -31,9 +25,6 @@ describe('socket io events', () => {
   let wrapper: VueWrapper
   const global = {
     plugins: [pinia],
-    mocks: {
-      $router: router,
-    },
   }
 
   beforeEach(() => {
@@ -50,14 +41,5 @@ describe('socket io events', () => {
     user.name = 'John Doe'
 
     expect(wrapper.find('[role="loader"]').text()).toBe('Loading messages...')
-  })
-  test.todo('should connect', () => {
-    expect(true).toBe(true)
-  })
-  test.todo('should disconnect', () => {
-    expect(true).toBe(true)
-  })
-  test.todo('should get error from the server', () => {
-    expect(true).toBe(true)
   })
 })

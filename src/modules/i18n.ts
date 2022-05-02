@@ -6,7 +6,7 @@ import { getLocale } from '~/utils/i18n/i18n'
 // https://vitejs.dev/guide/features.html#glob-import
 //
 // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
-const messages = Object.fromEntries(
+export const messages = Object.fromEntries(
   Object.entries(
     import.meta.globEager('../../locales/*.y(a)?ml'))
     .map(([key, value]) => {

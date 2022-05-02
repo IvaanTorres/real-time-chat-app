@@ -68,8 +68,8 @@ describe('<Tag />', () => {
     // Mount the component
     wrapper = mount(MessageComp, { props, global })
     // Get the div element
-    const div = wrapper.find('div')
+    const div = wrapper.find('[role="message"]')
     // Should not have that class
-    expect(div.classes()).not.toContain('text-right')
+    expect(div.classes()).not.toContain('ml-auto')
   })
 })

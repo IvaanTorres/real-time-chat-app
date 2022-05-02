@@ -20,7 +20,7 @@ const props = defineProps({
       class="flex justify-between items-center gap-10 text-center bg-dark-300 text-white py-2 px-10"
     >
       <span>-</span>
-      <p>
+      <p role="tag-message">
         {{ props.data.message }}
       </p>
       <span>-</span>

@@ -1,4 +1,4 @@
-import path from 'path'
+import path, { resolve } from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
@@ -143,6 +143,7 @@ export default defineConfig({
     deps: {
       inline: ['@vue', '@vueuse', 'vue-demi', 'vitest'],
     },
+    setupFiles: [resolve(__dirname, 'test/setup/setup.ts')],
     coverage: {
       reporter: ['text', 'lcov'],
     },

@@ -34,7 +34,7 @@ describe('<ConnectionStatus />', () => {
       })
       const span = wrapper.get('span').element
 
-      expect(wrapper.find('p').text()).toBe('Offline')
+      expect(wrapper.find('[role="status"]').text()).toBe('Offline')
       expect(span.getAttribute('class')).toContain(['bg-red-500'])
     })
 
@@ -46,7 +46,7 @@ describe('<ConnectionStatus />', () => {
       })
       const span = wrapper.get('span').element
 
-      expect(wrapper.find('p').text()).toBe('Online')
+      expect(wrapper.find('[role="status"]').text()).toBe('Online')
       expect(span.getAttribute('class')).toContain(['bg-green-500'])
     })
   })
