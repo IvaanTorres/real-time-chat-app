@@ -31,7 +31,7 @@ const changeLocale = (localeSelected: string) => {
       <div class="arrow-up dark:border-b-purple-200" />
       <div
         v-for="lang in availableLocales" :key="`locale-${lang}`"
-        class="bg-white border border-gray-300 py-1 cursor-pointer"
+        class="bg-white border border-gray-300 py-1 cursor-pointer text-center"
         dark="bg-purple-200 border-purple-300"
         hover="bg-purple-500 text-white"
         @click="changeLocale(lang)"

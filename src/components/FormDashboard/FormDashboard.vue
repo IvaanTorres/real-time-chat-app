@@ -36,7 +36,7 @@ const send = () => {
 </script>
 
 <template>
-  <form class="w-full flex justify-between gap-2" @submit.prevent="send">
+  <form class="w-full flex justify-between gap-2 px-2" @submit.prevent="send">
     <input
       ref="messageInput"
       v-model="messageBody"

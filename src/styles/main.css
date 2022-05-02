@@ -1,6 +1,10 @@
 @import './markdown.css';
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;1,400&display=swap');
 
+/* Custom CSS */
+
+/* Global */
+
 html,
 body,
 #app {
@@ -8,10 +12,6 @@ body,
   margin: 0;
   padding: 0;
 }
-
-/* html.dark {
-  background: #121212;
-} */
 
 *:focus {
   outline: none;

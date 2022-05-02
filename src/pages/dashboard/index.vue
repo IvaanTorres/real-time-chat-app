@@ -64,7 +64,7 @@ socket.off(events.server.DISCONNECT).on(events.server.DISCONNECT, (reason: strin
       <BoardUsers />
       <!-- Logout button -->
       <button
-        class="bg-purple-700 mt-5 p-1 px-5 text-white rounded-lg hover:bg-purple-800"
+        class="bg-purple-700 m-auto block mt-5 p-1 px-5 text-white rounded-full hover:bg-purple-800"
         dark="bg-purple-200 text-black transition ease duration-200 hover:bg-purple-500 hover:text-white"
         @click="logout"
       >
@@ -72,11 +72,12 @@ socket.off(events.server.DISCONNECT).on(events.server.DISCONNECT, (reason: strin
       </button>
     </div>
     <div
-      class="w-full text-black bg-white rounded-lg p-2 pt-5 pb-3 drop-shadow-2xl"
+      class="w-full text-black bg-white rounded-lg py-2 pt-5 pb-3 drop-shadow-2xl"
       dark="bg-purple-200"
       role="chat"
     >
-      <h3 class="text-3xl mb-2">
+      <h3 class="text-3xl text-center pb-10 px-2" style="box-shadow: 0 5px 5px -5px #333;">
+        <!-- TODO: Make it reactive -->
         General chat
       </h3>
       <Chat />

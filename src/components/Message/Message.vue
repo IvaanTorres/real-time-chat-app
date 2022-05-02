@@ -15,12 +15,27 @@ const props = defineProps({
 const user = useUserStore()
 
 // Check if the message is from the user and style it accordingly
-const isMyMessage = () => props.data.user === user.name ? 'text-right' : 'text-left'
+const isMyMessage = () => props.data.user === user.name
 
 </script>
 
 <template>
-  <div :class="isMyMessage()">
-    {{ props.data.user }}: {{ props.data.body }} ({{ getDate(props.data.createdAt, '/') }} - {{ getTime(props.data.createdAt, ':') }})
+  <div
+    class="block"
+    :class="isMyMessage() ? 'ml-auto' : 'mr-auto'"
+    role="message"
+  >
+    <div
+      role="message-body"
+      class="pr-5 pl-10 py-3 rounded-full border-2 drop-shadow-xl shadow-black"
+      :class="isMyMessage()
+        ? 'rounded-br-none bg-purple-700 text-white border-purple-900'
+        : 'rounded-bl-none bg-gray-100 text-black border-gray-300 dark:bg-gray-50'"
+    >
+      {{ props.data.body }}
+    </div>
+    <div role="message-info" class="text-xs text-right mt-1">
+      {{ props.data.user }} - {{ getDate(props.data.createdAt, '/') }} ({{ getTime(props.data.createdAt, ':') }})
+    </div>
   </div>
 </template>

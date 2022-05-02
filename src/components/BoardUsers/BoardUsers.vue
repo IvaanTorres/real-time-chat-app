@@ -58,7 +58,7 @@ socket.off(events.server.USER_DISCONNECTION).on(events.server.USER_DISCONNECTION
 </script>
 
 <template>
-  <div>
+  <div class="text-center">
     <h2>Users connected:</h2>
     <div v-if="!users.length">
       There are not users connected

@@ -48,16 +48,17 @@ describe('<Tag />', () => {
     const createdAt = getDate(wrapper.props().data.createdAt, '/')
     const updatedAt = getTime(wrapper.props().data.updatedAt, ':')
     // Show the formatted message
-    expect(wrapper.find('div').text()).toBe(`${wrapper.props().data.user}: ${wrapper.props().data.body} (${createdAt} - ${updatedAt})`)
+    expect(wrapper.find('[role="message-body"]').text()).toBe(`${wrapper.props().data.body}`)
+    expect(wrapper.find('[role="message-info"]').text()).toBe(`${wrapper.props().data.user} - ${createdAt} (${updatedAt})`)
   })
 
   test('should be my message', () => {
     // Mount the component
     wrapper = mount(MessageComp, { props, global })
     // Get the div element
-    const div = wrapper.find('div')
-    // Should have that class
-    expect(div.classes()).toContain('text-right')
+    const div = wrapper.find('[role="message"]')
+    // Should be positionned to the right
+    expect(div.classes()).toContain('ml-auto')
   })
 
   test('should not be my message', () => {

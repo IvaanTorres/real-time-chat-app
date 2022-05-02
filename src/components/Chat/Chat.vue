@@ -57,14 +57,14 @@ socket.off(events.server.SAVED_MESSAGE).on(events.server.SAVED_MESSAGE, (data: M
 <template>
   <div
     id="chat"
-    class="max-h-lg overflow-y-scroll px-5 my-10"
+    class="max-h-lg overflow-y-scroll px-5 mb-10"
     lg="px-10"
   >
     <p v-if="noMessages(isLoading, chat)">
       There's no messages for the moment
     </p>
     <Loader v-if="isLoading" role="loader" />
-    <div v-for="message in chat" :key="message._id">
+    <div v-for="message in chat" :key="message._id" class="flex my-3">
       <Message v-if="isMessage(message)" :data="message" />
       <Tag v-else :data="message" />
     </div>
