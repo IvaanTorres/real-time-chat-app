@@ -1,15 +1,35 @@
-intl:
-  title: 'Выбрать язык'
+title:
+  login: Авторизоваться
+  chat: Общий чат
+  connection:
+    users: Пользователи подключены
+
+text:
+  not-found: 404 Не Найдено
+  status:
+    online: В сети
+    offline: Не в сети
+  connection:
+    no-users: Нет подключенных пользователей
+  chat:
+    no-messages: На данный момент нет сообщений
+    loading: Загрузка сообщений...
+
+select:
+  i18n: Выбрать язык
+
 button:
-  about: О шаблоне
-  back: Назад
-  go: Перейти
-  home: Главная
-  toggle_dark: Включить темный режим
-  toggle_langs: Сменить язык
-intro:
-  desc: Самостоятельный начальный шаблон Vite
-  dynamic-route: Демо динамического маршрута
-  hi: Привет, {name}!
-  whats-your-name: Как тебя зовут?
-not-found: Не найден
+  login: Авторизоваться
+  logout: Выйти
+
+input:
+  login: Введите свое имя пользователя
+  chat: Пишите ваше сообщение здесь
+
+tag:
+  disconnection:
+    body: Пользователь {username} отключился
+  connection:
+    body: Пользователь {username} подключился
+  welcome:
+    body: Добро пожаловать {username}

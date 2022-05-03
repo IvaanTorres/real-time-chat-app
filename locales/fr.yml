@@ -1,16 +1,35 @@
-intl:
-  title: 'Choisir la langue'
+title:
+  login: Log in
+  chat: Chat général
+  connection:
+    users: Utilisateurs connectés
+
+text:
+  not-found: 404 pas trouvé
+  status:
+    online: Online
+    offline: Offline
+  connection:
+    no-users: Il n'y a aucun utilisateur connecté
+  chat:
+    no-messages: Il n'y a pas de messages pour le moment
+    loading: Chargement des messages...
+
+select:
+  i18n: Choisir la langue
+
 button:
-  about: À propos de
-  back: Retour
-  go: Essayer
-  home: Accueil
-  toggle_dark: Basculer en mode sombre
-  toggle_langs: Changer de langue
-intro:
-  desc: Exemple d'application Vite
-  dynamic-route: Démo de route dynamique
-  hi: Salut, {name}!
-  aka: Aussi connu sous le nom de
-  whats-your-name: Comment t'appelles-tu ?
-not-found: Page non trouvée
+  login: Connexion
+  logout: Se déconnecter
+
+input:
+  login: Tapez votre nom d'utilisateur
+  chat: Tapez votre message ici
+
+tag:
+  disconnection:
+    body: L'utilisateur {username} s'est déconnecté
+  connection:
+    body: L'utilisateur {username} s'est connecté
+  welcome:
+    body: Bienvenue {username}

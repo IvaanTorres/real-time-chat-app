@@ -1,15 +1,35 @@
-intl:
-  title: 'Seleziona la lingua'
+title:
+  login: Log in
+  chat: Chiacchierata generale
+  connection:
+    users: Utenti collegati
+
+text:
+  not-found: 404 non trovato
+  status:
+    online: Online
+    offline: Offline
+  connection:
+    no-users: Non ci sono utenti collegati
+  chat:
+    no-messages: Non ci sono messaggi per il momento
+    loading: Caricamento messaggi...
+
+select:
+  i18n: Seleziona la lingua
+
 button:
-  about: Su di me
-  back: Indietro
-  go: Vai
-  home: Home
-  toggle_dark: Attiva/disattiva modalità scura
-  toggle_langs: Cambia lingua
-intro:
-  desc: Modello per una Applicazione Vite
-  dynamic-route: Demo di rotta dinamica
-  hi: Ciao, {name}!
-  whats-your-name: Come ti chiami?
-not-found: Non trovato
+  login: Collegare
+  logout: Disconnettersi
+
+input:
+  login: Digita il tuo nome utente
+  chat: Scrivi qui il tuo messaggio
+
+tag:
+  disconnection:
+    body: L'utente {username} si è disconnesso
+  connection:
+    body: L'utente {username} si è connesso
+  welcome:
+    body: Benvenuto {username}

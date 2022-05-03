@@ -3,10 +3,12 @@ import { mount } from '@vue/test-utils'
 import { spyOn } from 'vitest'
 import type { TestingPinia } from '@pinia/testing'
 import { createTestingPinia } from '@pinia/testing'
+import { createI18n } from 'vue-i18n'
 import MessageComp from './Message.vue'
 import { getDate, getTime } from '~/utils/main/main'
 import { useUserStore } from '~/stores/user'
 import { message } from '~/__mocks__/message'
+import { messages } from '~/modules/i18n'
 
 let pinia: TestingPinia
 
@@ -23,18 +25,23 @@ beforeAll(() => {
 
 describe('<Tag />', () => {
   let wrapper: VueWrapper
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages,
+  })
   const props = {
     data: message,
   }
-  const global = {
-    plugins: [pinia],
+  const plugins = {
+    plugins: [pinia, i18n],
   }
 
   afterEach(() => wrapper.unmount())
 
   test('should mount', () => {
     // Mount the component
-    wrapper = mount(MessageComp, { props, global })
+    wrapper = mount(MessageComp, { props, global: plugins })
     // The component should exists
     expect(MessageComp).toBeTruthy()
     // The component should be mounted
@@ -43,7 +50,7 @@ describe('<Tag />', () => {
 
   test('should show the message', () => {
     // Mount the component
-    wrapper = mount(MessageComp, { props, global })
+    wrapper = mount(MessageComp, { props, global: plugins })
     // Format date and time
     const createdAt = getDate(wrapper.props().data.createdAt, '/')
     const updatedAt = getTime(wrapper.props().data.updatedAt, ':')
@@ -54,7 +61,7 @@ describe('<Tag />', () => {
 
   test('should be my message', () => {
     // Mount the component
-    wrapper = mount(MessageComp, { props, global })
+    wrapper = mount(MessageComp, { props, global: plugins })
     // Get the div element
     const div = wrapper.find('[role="message"]')
     // Should be positionned to the right
@@ -66,7 +73,7 @@ describe('<Tag />', () => {
     const user = useUserStore()
     user.name = 'Foo'
     // Mount the component
-    wrapper = mount(MessageComp, { props, global })
+    wrapper = mount(MessageComp, { props, global: plugins })
     // Get the div element
     const div = wrapper.find('[role="message"]')
     // Should not have that class

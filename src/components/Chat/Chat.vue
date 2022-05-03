@@ -7,6 +7,8 @@ import { useChatStore } from '~/stores/chat'
 import { events } from '~/enums'
 import { firstToLast, isMessage, noMessages } from '~/utils/main/main'
 
+// Use i18n
+const { t } = useI18n()
 // Use the chat store
 const { chat, setChat } = useChatStore()
 // The loading state
@@ -24,7 +26,7 @@ onMounted(() => {
 socket.off(events.server.WELCOME).on(events.server.WELCOME, (user: User) => {
   const newTag: Tag = {
     _id: user.id,
-    message: `Welcome ${user.username}`,
+    message: t('tag.welcome.body', { username: user.username }),
   }
   chat.push(newTag)
 })
@@ -61,7 +63,7 @@ socket.off(events.server.SAVED_MESSAGE).on(events.server.SAVED_MESSAGE, (data: M
     lg="px-10"
   >
     <p v-if="noMessages(isLoading, chat)">
-      There's no messages for the moment
+      {{ t('text.chat.no-messages') }}
     </p>
     <Loader v-if="isLoading" role="loader" />
     <div v-for="message in chat" :key="message._id" class="flex my-3">

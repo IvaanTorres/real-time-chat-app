@@ -2,7 +2,9 @@ import type { TestingPinia } from '@pinia/testing'
 import { createTestingPinia } from '@pinia/testing'
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
+import { createI18n } from 'vue-i18n'
 import FormDashboard from './FormDashboard.vue'
+import { messages } from '~/modules/i18n'
 
 // Define the pinia instance
 let pinia: TestingPinia
@@ -21,10 +23,17 @@ beforeAll(() => {
 describe('<FormDashboard />', () => {
   // Define the wrapper/component
   let wrapper: VueWrapper
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages,
+  })
   // Define the global wrapper options
   const global = {
     attachTo: document.body,
-    plugins: [pinia],
+    global: {
+      plugins: [pinia, i18n],
+    },
   }
 
   beforeEach(async() => {
@@ -32,7 +41,7 @@ describe('<FormDashboard />', () => {
     vi.resetAllMocks()
   })
 
-  afterEach(() => { wrapper.unmount() })
+  afterEach(() => wrapper.unmount())
 
   test('should mount', () => {
     // The component should exists

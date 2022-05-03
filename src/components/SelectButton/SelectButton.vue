@@ -26,7 +26,7 @@ const changeLocale = (localeSelected: string) => {
   >
     <div class="cursor-pointer" role="select-button" @click="toggleDropdown()">
       <LangIcon class="inline w-8 mr-2" />
-      <span role="select-title" class="font-medium" dark="text-white">{{ t('intl.title') }}</span>
+      <span role="select-title" class="font-medium" dark="text-white">{{ t('select.i18n') }}</span>
     </div>
     <div v-if="isOpen" class="absolute w-full pt-2 shadow-xl" role="dropdown">
       <div class="arrow-up dark:border-b-purple-200" />

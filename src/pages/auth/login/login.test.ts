@@ -3,8 +3,10 @@ import { mount } from '@vue/test-utils'
 import { spyOn } from 'vitest'
 import type { TestingPinia } from '@pinia/testing'
 import { createTestingPinia } from '@pinia/testing'
+import { createI18n } from 'vue-i18n'
 import Login from './index.vue'
 import { useUserStore } from '~/stores/user'
+import { messages } from '~/modules/i18n'
 
 // Define the pinia instance
 let pinia: TestingPinia
@@ -29,9 +31,14 @@ beforeAll(() => {
 describe('<Login />', () => {
   // Define the wrapper/component
   let wrapper: VueWrapper
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages,
+  })
   // Define the global wrapper options
   const global = {
-    plugins: [pinia],
+    plugins: [pinia, i18n],
     mocks: {
       $router: router,
     },

@@ -1,16 +1,35 @@
-intl:
-  title: 'Sprache auswählen'
+title:
+  login: Log in
+  chat: Allgemeiner Chat
+  connection:
+    users: Benutzer verbunden
+
+text:
+  not-found: 404 Nicht gefunden
+  status:
+    online: Online
+    offline: Offline
+  connection:
+    no-users: Es sind keine Benutzer verbunden
+  chat:
+    no-messages: Im Moment sind keine Nachrichten vorhanden
+    loading: Nachrichten werden geladen...
+
+select:
+  i18n: Sprache auswählen
+
 button:
-  about: Über
-  back: Zurück
-  go: Los
-  home: Startseite
-  toggle_dark: Dunkelmodus umschalten
-  toggle_langs: Sprachen ändern
-intro:
-  desc: Vite Startvorlage mit Vorlieben
-  dynamic-route: Demo einer dynamischen Route
-  hi: Hi, {name}!
-  aka: Auch bekannt als
-  whats-your-name: Wie heißt du?
-not-found: Nicht gefunden
+  login: Verbinden
+  logout: Ausloggen
+
+input:
+  login: Geben Sie Ihren Benutzernamen ein
+  chat: Schreiben Sie ihre Nachricht hier
+
+tag:
+  disconnection:
+    body: Der Benutzer {username} hat die Verbindung getrennt
+  connection:
+    body: Der Benutzer {username} hat sich verbunden
+  welcome:
+    body: Willkommen {username}

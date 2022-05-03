@@ -2,8 +2,10 @@ import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import type { TestingPinia } from '@pinia/testing'
 import { createTestingPinia } from '@pinia/testing'
+import { createI18n } from 'vue-i18n'
 import Dashboard from './index.vue'
 import { useUserStore } from '~/stores/user'
+import { messages } from '~/modules/i18n'
 
 let pinia: TestingPinia
 // Define the router
@@ -26,8 +28,13 @@ beforeAll(() => {
 
 describe('<Dashboard />', () => {
   let wrapper: VueWrapper
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages,
+  })
   const global = {
-    plugins: [pinia],
+    plugins: [pinia, i18n],
     mocks: {
       $router: router,
     },

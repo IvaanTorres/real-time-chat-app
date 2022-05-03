@@ -4,6 +4,8 @@ import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
 import { events } from '~/enums'
 
+// Use i18n
+const { t } = useI18n()
 // Use the user store
 const user = useUserStore()
 // The message body
@@ -43,7 +45,7 @@ const send = () => {
       class="w-full p-5 text-black bg-gray-300 rounded-full"
       dark="bg-gray-600 text-white"
       type="text"
-      placeholder="Type your message here"
+      :placeholder="t('input.chat')"
     >
     <button
       class="flex justify-center items-center bg-purple-700 text-white min-w-10 px-4  rounded-full transition ease duration-200 hover:bg-purple-800"

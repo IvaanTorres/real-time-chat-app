@@ -55,6 +55,6 @@ describe('<SelectButton />', () => {
     // Click on the Spanish option [2]
     await wrapper.findAll('[role="dropdown-item"]')[2].trigger('click')
     // Check the new locale
-    expect(wrapper.find('[role="select-title"]').text()).toBe('Seleccione el idioma')
+    expect(wrapper.find('[role="select-title"]').text()).toBe('Selecciona un idioma')
   })
 })

@@ -5,8 +5,10 @@ import type { TestingPinia } from '@pinia/testing'
 import { createTestingPinia } from '@pinia/testing'
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
+import { createI18n } from 'vue-i18n'
 import Chat from './Chat.vue'
 import { useUserStore } from '~/stores/user'
+import { messages } from '~/modules/i18n'
 
 let pinia: TestingPinia
 
@@ -23,8 +25,13 @@ beforeAll(() => {
 
 describe('socket io events', () => {
   let wrapper: VueWrapper
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages,
+  })
   const global = {
-    plugins: [pinia],
+    plugins: [pinia, i18n],
   }
 
   beforeEach(() => {

@@ -3,6 +3,8 @@ import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
 import { events } from '~/enums'
 
+// Use i18n
+const { t } = useI18n()
 // Use router
 const router = useRouter()
 // Use the user store
@@ -68,7 +70,7 @@ socket.off(events.server.DISCONNECT).on(events.server.DISCONNECT, (reason: strin
         dark="bg-purple-200 text-black transition ease duration-200 hover:bg-purple-500 hover:text-white"
         @click="logout"
       >
-        Logout
+        {{ t('button.logout') }}
       </button>
     </div>
     <div
@@ -78,7 +80,7 @@ socket.off(events.server.DISCONNECT).on(events.server.DISCONNECT, (reason: strin
     >
       <h3 class="text-3xl text-center pb-10 px-2" style="box-shadow: 0 5px 5px -5px #333;">
         <!-- TODO: Make it reactive -->
-        General chat
+        {{ t('title.chat') }}
       </h3>
       <Chat />
       <FormDashboard />

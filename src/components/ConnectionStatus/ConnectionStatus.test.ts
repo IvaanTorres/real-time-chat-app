@@ -2,7 +2,9 @@
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { spyOn } from 'vitest'
+import { createI18n } from 'vue-i18n'
 import ConnectionStatus from './ConnectionStatus.vue'
+import { messages } from '~/modules/i18n'
 
 beforeAll(() => {
   // Remove the warning messages
@@ -11,6 +13,16 @@ beforeAll(() => {
 
 describe('<ConnectionStatus />', () => {
   let wrapper: VueWrapper
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages,
+  })
+  const global = {
+    global: {
+      plugins: [i18n],
+    },
+  }
 
   afterEach(() => wrapper.unmount())
 
@@ -18,7 +30,7 @@ describe('<ConnectionStatus />', () => {
     // The component should exists
     expect(ConnectionStatus).toBeTruthy()
     // Mount the component
-    wrapper = mount(ConnectionStatus)
+    wrapper = mount(ConnectionStatus, global)
     // The component should be mounted
     expect(wrapper).toBeTruthy()
   })
@@ -31,6 +43,9 @@ describe('<ConnectionStatus />', () => {
         props: {
           isConnected: false,
         },
+        global: {
+          plugins: [i18n],
+        },
       })
       const span = wrapper.get('span').element
 
@@ -42,6 +57,9 @@ describe('<ConnectionStatus />', () => {
       const wrapper = mount(ConnectionStatus, {
         props: {
           isConnected: true,
+        },
+        global: {
+          plugins: [i18n],
         },
       })
       const span = wrapper.get('span').element

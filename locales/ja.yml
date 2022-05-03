@@ -1,15 +1,35 @@
-intl:
-  title: '言語を選択する'
+title:
+  login: ログイン
+  chat: 一般的なチャット
+  connection:
+    users: 接続しているユーザー
+
+text:
+  not-found: 404 お探しのページが見つかりませんでした
+  status:
+    online: オンライン
+    offline: オフライン
+  connection:
+    no-users: 接続されているユーザーはありません
+  chat:
+    no-messages: 今のところメッセージはありません
+    loading: メッセージを読み込んでいます...
+
+select:
+  i18n: 言語を選択する
+
 button:
-  about: これは？
-  back: 戻る
-  go: 進む
-  home: ホーム
-  toggle_dark: ダークモード切り替え
-  toggle_langs: 言語切り替え
-intro:
-  desc: 固執された Vite スターターテンプレート
-  dynamic-route: 動的ルートのデモ
-  hi: こんにちは、{name}!
-  whats-your-name: 君の名は。
-not-found: 見つかりませんでした
+  login: ログイン
+  logout: ログアウト
+
+input:
+  login: ユーザー名を入力してください
+  chat: ここにメッセージを入力してください
+
+tag:
+  disconnection:
+    body: ユーザー {username} が切断されました
+  connection:
+    body: ユーザー {username} が接続しました
+  welcome:
+    body: ようこそ {username}

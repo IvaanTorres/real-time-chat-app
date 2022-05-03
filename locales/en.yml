@@ -1,16 +1,35 @@
-intl:
-  title: 'Select language'
+title:
+  login: Log in
+  chat: General chat
+  connection:
+    users: Users connected
+
+text:
+  not-found: 404 not found
+  status:
+    online: Online
+    offline: Offline
+  connection:
+    no-users: There are no users connected
+  chat:
+    no-messages: There's no messages for the moment
+    loading: Loading messages...
+
+select:
+  i18n: Select language
+
 button:
-  about: About
-  back: Back
-  go: GO
-  home: Home
-  toggle_dark: Toggle dark mode
-  toggle_langs: Change languages
-intro:
-  desc: Opinionated Vite Starter Template
-  dynamic-route: Demo of dynamic route
-  hi: Hi, {name}!
-  aka: Also known as
-  whats-your-name: What's your name?
-not-found: Not found
+  login: Login
+  logout: Logout
+
+input:
+  login: Type your username
+  chat: Type your message here
+
+tag:
+  disconnection:
+    body: The user {username} has disconnected
+  connection:
+    body: The user {username} has connected
+  welcome:
+    body: Welcome {username}

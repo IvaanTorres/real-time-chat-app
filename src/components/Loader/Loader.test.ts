@@ -1,7 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { spyOn } from 'vitest'
+import { createI18n } from 'vue-i18n'
 import Loader from './Loader.vue'
+import { messages } from '~/modules/i18n'
 
 beforeAll(() => {
   // Remove the warning messages
@@ -10,8 +12,18 @@ beforeAll(() => {
 
 describe('<Loader />', () => {
   let wrapper: VueWrapper
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages,
+  })
+  const global = {
+    global: {
+      plugins: [i18n],
+    },
+  }
 
-  beforeEach(() => { wrapper = mount(Loader) })
+  beforeEach(() => { wrapper = mount(Loader, global) })
   afterEach(() => wrapper.unmount())
 
   test('should mount', () => {

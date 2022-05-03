@@ -7,6 +7,8 @@ import { useChatStore } from '~/stores/chat'
 import { useUserStore } from '~/stores/user'
 import { events } from '~/enums'
 
+// Use i18n
+const { t } = useI18n()
 // Use the chat store
 const { chat } = useChatStore()
 // Use the user store
@@ -31,7 +33,7 @@ socket.off(events.server.USERS).on(events.server.USERS, (usersList: User[]) => {
 socket.off(events.server.USER_CONNECTION).on(events.server.USER_CONNECTION, (newUser: User) => {
   const newTag: Tag = {
     _id: newUser.id,
-    message: `The user ${newUser.username} has connected`,
+    message: t('tag.connection.body', { username: newUser.username }),
   }
   // Add the user to the users list
   users.value.push(newUser)
@@ -48,10 +50,10 @@ socket.off(events.server.USER_CONNECTION).on(events.server.USER_CONNECTION, (new
 socket.off(events.server.USER_DISCONNECTION).on(events.server.USER_DISCONNECTION, (userDisconnected: User) => {
   const newTag: Tag = {
     _id: userDisconnected.id,
-    message: `The user ${userDisconnected.username} has disconnected`,
+    message: t('tag.disconnection.body', { username: userDisconnected.username }),
   }
   // Remove the user from the users list
-  const indexToRemove = users.value.findIndex(user => user.id === userDisconnected.id)
+  const indexToRemove = users.value.findIndex(u => u.id === userDisconnected.id)
   users.value.splice(indexToRemove, 1)
   if (userDisconnected.username !== user.name) chat.push(newTag)
 })
@@ -59,9 +61,9 @@ socket.off(events.server.USER_DISCONNECTION).on(events.server.USER_DISCONNECTION
 
 <template>
   <div class="text-center">
-    <h2>Users connected:</h2>
+    <h2>{{ t('title.connection.users') }}:</h2>
     <div v-if="!users.length">
-      There are not users connected
+      {{ t('text.connection.no-users') }}
     </div>
     <div v-for="_user in users" :key="_user.id">
       {{ _user.username }}
