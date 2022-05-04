@@ -138,7 +138,7 @@ export default defineConfig({
 
   // https://github.com/vitest-dev/vitest
   test: {
-    include: ['./src/**/*.test.ts'],
+    include: ['./test/**/*.test.ts'],
     environment: 'jsdom',
     deps: {
       inline: ['@vue', '@vueuse', 'vue-demi', 'vitest'],

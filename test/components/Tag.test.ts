@@ -1,7 +1,7 @@
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { spyOn } from 'vitest'
-import TagComp from './Tag.vue'
+import TagComp from '~/components/Tag.vue'
 import { tag } from '~/__mocks__/tag'
 
 beforeAll(() => {

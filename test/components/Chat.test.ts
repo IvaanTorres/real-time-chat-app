@@ -3,7 +3,7 @@ import { createTestingPinia } from '@pinia/testing'
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { createI18n } from 'vue-i18n'
-import Chat from './Chat.vue'
+import Chat from '~/components/Chat.vue'
 import { useUserStore } from '~/stores/user'
 import { messages } from '~/modules/i18n'
 

@@ -8,8 +8,9 @@ sonarqubeScanner({
     'sonar.projectKey': process.env.SONAR_UI_KEY,
     'sonar.sources': 'src',
     'sonar.inclusions': 'src/**/*.ts,src/**/*.vue',
-    'sonar.tests': 'src',
-    'sonar.test.inclusions': 'src/**/*.test.ts',
+    'sonar.exclusions': 'src/composables/**/*.ts,src/modules/**/*.ts',
+    'sonar.tests': 'test',
+    'sonar.test.inclusions': 'test/**/*.test.ts',
     'sonar.javascript.lcov.reportPaths': 'coverage/lcov.info',
   },
 }, () => {

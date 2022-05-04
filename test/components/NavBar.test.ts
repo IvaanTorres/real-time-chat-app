@@ -1,19 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
-import { createPinia, setActivePinia } from 'pinia'
-import { spyOn } from 'vitest'
 import { createI18n } from 'vue-i18n'
-import BoardUsers from './BoardUsers.vue'
+import NavBar from '~/components/NavBar.vue'
 import { messages } from '~/modules/i18n'
 
-beforeAll(() => {
-  // Create pinia instance
-  setActivePinia(createPinia())
-  // Remove the warning messages
-  spyOn(console, 'warn').mockImplementation(() => {})
-})
-
-describe('<BoardUsers />', () => {
+describe('<NavBar />', () => {
   let wrapper: VueWrapper
   const i18n = createI18n({
     legacy: false,
@@ -26,12 +17,14 @@ describe('<BoardUsers />', () => {
     },
   }
 
-  beforeEach(() => { wrapper = mount(BoardUsers, global) })
+  beforeEach(() => {
+    wrapper = mount(NavBar, global)
+  })
   afterEach(() => wrapper.unmount())
 
   test('should mount', () => {
     // The component should exists
-    expect(BoardUsers).toBeTruthy()
+    expect(NavBar).toBeTruthy()
     // The component should be mounted
     expect(wrapper).toBeTruthy()
   })

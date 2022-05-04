@@ -1,7 +1,7 @@
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { createI18n } from 'vue-i18n'
-import SelectButton from './SelectButton.vue'
+import SelectButton from '~/components/SelectButton.vue'
 import { messages } from '~/modules/i18n'
 
 describe('<SelectButton />', () => {

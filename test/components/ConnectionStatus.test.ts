@@ -3,7 +3,7 @@ import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { spyOn } from 'vitest'
 import { createI18n } from 'vue-i18n'
-import ConnectionStatus from './ConnectionStatus.vue'
+import ConnectionStatus from '~/components/ConnectionStatus.vue'
 import { messages } from '~/modules/i18n'
 
 beforeAll(() => {

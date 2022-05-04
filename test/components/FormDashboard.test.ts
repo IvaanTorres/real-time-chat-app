@@ -3,7 +3,7 @@ import { createTestingPinia } from '@pinia/testing'
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import { createI18n } from 'vue-i18n'
-import FormDashboard from './FormDashboard.vue'
+import FormDashboard from '~/components/FormDashboard.vue'
 import { messages } from '~/modules/i18n'
 
 // Define the pinia instance

@@ -1,6 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
-import SwitchButton from './SwitchButton.vue'
+import SwitchButton from '~/components/SwitchButton.vue'
 
 describe('<SwitchButton />', () => {
   let wrapper: VueWrapper

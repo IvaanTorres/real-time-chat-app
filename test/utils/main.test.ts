@@ -1,4 +1,4 @@
-import { addPreffix, firstToLast, getDate, getTime, isMessage, noMessages, toDate } from './main'
+import { addPreffix, firstToLast, getDate, getTime, isMessage, noMessages, toDate } from '~/utils/main/main'
 import type Message from '~/models/Message'
 import type Tag from '~/models/Tag'
 
