@@ -13,10 +13,30 @@ const { t } = useI18n()
 const { chat, setChat } = useChatStore()
 // The loading state
 const isLoading = ref<boolean>(true)
+// The chat div
+const chatDiv = ref<HTMLDivElement>()
 
 // Reset the chat when the chat is mounted
 onMounted(() => {
   setChat([])
+})
+
+/**
+ * Scroll to the bottom of the chat
+ */
+const scrollDown = () => {
+  // If the chat is mounted, scroll down
+  chatDiv.value && setTimeout(() => {
+    chatDiv.value!.scrollTop = chatDiv.value!.scrollHeight
+  }, 50)
+}
+
+/**
+ * Socket event that is called everytime a socket event is trigered/received.
+ */
+socket.onAny(() => {
+  // Autoscroll down
+  scrollDown()
 })
 
 /**
@@ -59,6 +79,7 @@ socket.off(events.server.SAVED_MESSAGE).on(events.server.SAVED_MESSAGE, (data: M
 <template>
   <div
     id="chat"
+    ref="chatDiv"
     class="max-h-lg overflow-y-scroll px-5 mb-10"
     lg="px-10"
   >

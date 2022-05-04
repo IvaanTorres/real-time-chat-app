@@ -22,5 +22,6 @@ export const events = {
     USERS: 'server:users',
     CONNECT: 'connect',
     DISCONNECT: 'disconnect',
+    CONNECT_ERROR: 'connect_error',
   },
 }

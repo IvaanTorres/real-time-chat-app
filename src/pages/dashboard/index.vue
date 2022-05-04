@@ -28,7 +28,7 @@ const logout = () => {
  * If there is a connection error, go to the login page and disconnect
  * @param {Error} err - The error object
  */
-socket.on('connect_error', (err: Error) => {
+socket.on(events.server.CONNECT_ERROR, (err: Error) => {
   if (err.message === 'Invalid username') console.error(err.message)
   logout()
 })

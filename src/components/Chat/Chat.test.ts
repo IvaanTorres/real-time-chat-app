@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// import type Message from '~/models/Message'
-
 import type { TestingPinia } from '@pinia/testing'
 import { createTestingPinia } from '@pinia/testing'
 import type { VueWrapper } from '@vue/test-utils'
@@ -23,7 +20,7 @@ beforeAll(() => {
   })
 })
 
-describe('socket io events', () => {
+describe('<Chat />', () => {
   let wrapper: VueWrapper
   const i18n = createI18n({
     legacy: false,
@@ -48,5 +45,11 @@ describe('socket io events', () => {
     user.name = 'John Doe'
 
     expect(wrapper.find('[role="loader"]').text()).toBe('Loading messages...')
+  })
+
+  test('should be positioned at the bottom of the chat', () => {
+    setTimeout(() => {
+      expect(wrapper.vm.$el.scrollTop).toBe(wrapper.vm.$el.scrollHeight)
+    }, 50)
   })
 })
