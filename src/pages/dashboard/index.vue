@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import socket from '~/sockets/socket'
 import { useUserStore } from '~/stores/user'
-import { events } from '~/enums'
+import { events, routes } from '~/enums'
 
 // Use i18n
 const { t } = useI18n()
@@ -21,7 +21,7 @@ onMounted(() => {
 const logout = () => {
   socket.disconnect()
   user.reset()
-  router.push('/auth/login')
+  router.push(routes.LOGIN)
 }
 
 /**
@@ -45,7 +45,7 @@ socket.off(events.server.CONNECT).on(events.server.CONNECT, () => {
  * @param {string} reason -  The reason why the client has been disconnected.
  */
 socket.off(events.server.DISCONNECT).on(events.server.DISCONNECT, (reason: string) => {
-  router.push('/auth/login')
+  router.push(routes.LOGIN)
   user.reset()
   // Reconnect if the disconnection comes from the socket server
   if (reason === 'io server disconnect') socket.connect()

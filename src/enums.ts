@@ -9,6 +9,11 @@ export const locales = {
   PORTUGUESE: 'Português',
 }
 
+export const routes = {
+  LOGIN: '/auth/login',
+  DASHBOARD: '/dashboard',
+}
+
 export const events = {
   client: {
     MESSAGE: 'client:message',

@@ -5,7 +5,9 @@ title:
     users: 接続しているユーザー
 
 text:
-  not-found: 404 お探しのページが見つかりませんでした
+  not-found: お探しのページが見つかりませんでした
+  redirection:
+    login: ログインに移動
   status:
     online: オンライン
     offline: オフライン

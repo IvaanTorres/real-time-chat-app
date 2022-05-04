@@ -5,7 +5,9 @@ title:
     users: Usuários conectados
 
 text:
-  not-found: 404 não encontrado
+  not-found: Não encontrado
+  redirection:
+    login: Ir para entrar
   status:
     online: Online
     offline: Offline

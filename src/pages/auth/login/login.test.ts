@@ -7,6 +7,7 @@ import { createI18n } from 'vue-i18n'
 import Login from './index.vue'
 import { useUserStore } from '~/stores/user'
 import { messages } from '~/modules/i18n'
+import { routes } from '~/enums'
 
 // Define the pinia instance
 let pinia: TestingPinia
@@ -76,7 +77,7 @@ describe('<Login />', () => {
     // expect('Logout').toBeDefined()
 
     // * OPTION 2 - Use a mocked router
-    expect(pushAction).toHaveBeenCalledWith('/dashboard')
+    expect(pushAction).toHaveBeenCalledWith(routes.DASHBOARD)
     expect(pushAction).toHaveBeenCalledTimes(1)
 
     // * OPTION 3 - Use the real router by importing the one that the app is using

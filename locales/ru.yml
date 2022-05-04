@@ -5,7 +5,9 @@ title:
     users: Пользователи подключены
 
 text:
-  not-found: 404 Не Найдено
+  not-found: Не Найдено
+  redirection:
+    login: Перейти к входу
   status:
     online: В сети
     offline: Не в сети

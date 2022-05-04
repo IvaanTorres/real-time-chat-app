@@ -6,6 +6,7 @@ import { createI18n } from 'vue-i18n'
 import Dashboard from './index.vue'
 import { useUserStore } from '~/stores/user'
 import { messages } from '~/modules/i18n'
+import { routes } from '~/enums'
 
 let pinia: TestingPinia
 // Define the router
@@ -62,7 +63,7 @@ describe('<Dashboard />', () => {
 
     await wrapper.find('button').trigger('click')
 
-    expect(logoutAction).toHaveBeenCalledWith('/auth/login')
+    expect(logoutAction).toHaveBeenCalledWith(routes.LOGIN)
     expect(logoutAction).toHaveBeenCalledTimes(1)
 
     expect(user.name).toBe('')
