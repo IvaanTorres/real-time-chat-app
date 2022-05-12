@@ -5,9 +5,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main, dev]
+    branches: [master, dev]
   pull_request:
-    branches: [main, dev]
+    branches: [master, dev]
 
 jobs:
   build:
@@ -44,54 +44,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
         
-      - run: npm run test:unit
+      - run: npm install
+      - run: npm run build
+      - run: npm run test:unit:silent
         env:
           VITE_API_URL: 'https://api-thunder-link.herokuapp.com'
 
-  e2e-tests:
-    needs: unit-tests  
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
-    steps:
-      #* Cypress install
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
-
-      - name: Cypress install
-        uses: cypress-io/github-action@v2
-        with:
-          # Disable running of tests within install job
-          runTests: false
-          build: npm run build
-      
-      #* Cypress run
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
-
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          # Specify Browser since container image is compile with Firefox
-          browser: chrome
-          build: npm run build
-
   docker:
-    needs: e2e-tests
+    needs: unit-tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -121,13 +81,13 @@ jobs:
           push: true
           tags: ivaantorres/real-time-chat-app:1.5.0 # Name of the new tag
 
-  deploy:
-    needs: docker
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  #deploy:
+  #  needs: docker
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
 
-      - run: git push heroku ${GITHUB_REF##*/}
+      #- run: git push heroku ${GITHUB_REF##*/}:master
 
       #! Heroku has disabled the Github CI deployment due to security issues with oAuth tokens.
       #- uses: akhileshns/heroku-deploy@v3.12.12 # This is the action

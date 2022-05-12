@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost/auth/login",
+  "baseUrl": "http://localhost:8080/auth/login",
   "chromeWebSecurity": false,
   "testFiles": "**/*.test.ts",
   "componentFolder": "cypress/integration",
@@ -8,7 +8,7 @@
   "video": false,
   "screenshotOnRunFailure": false,
   "env": { 
-    "HOST": "http://localhost/auth/login",
+    "HOST": "http://localhost:8080/auth/login",
     "API": "http://localhost:3000"
   }
 }
