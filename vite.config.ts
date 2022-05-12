@@ -18,6 +18,7 @@ const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 export default defineConfig({
   server: {
     host: '0.0.0.0', // Must add this to make available the dev env in Docker
+    open: '/auth/login',
     watch: {
       usePolling: true,
     },

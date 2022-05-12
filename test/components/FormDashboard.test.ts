@@ -5,6 +5,7 @@ import { mount } from '@vue/test-utils'
 import { createI18n } from 'vue-i18n'
 import FormDashboard from '~/components/FormDashboard.vue'
 import { messages } from '~/modules/i18n'
+import { user } from '~/__mocks__/user'
 
 // Define the pinia instance
 let pinia: TestingPinia
@@ -15,7 +16,7 @@ beforeAll(() => {
   // Create pinia instance
   pinia = createTestingPinia({
     initialState: {
-      user: { name: 'John Doe' },
+      user: { name: user.username },
     },
   })
 })

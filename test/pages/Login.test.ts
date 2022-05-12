@@ -8,6 +8,7 @@ import Login from '~/pages/auth/login/index.vue'
 import { useUserStore } from '~/stores/user'
 import { messages } from '~/modules/i18n'
 import { routes } from '~/enums'
+import { user } from '~/__mocks__/user'
 
 // Define the pinia instance
 let pinia: TestingPinia
@@ -24,7 +25,7 @@ beforeAll(() => {
   // Create pinia instance
   pinia = createTestingPinia({
     initialState: {
-      user: { name: 'John Doe' },
+      user: { name: user.username },
     },
   })
 })
@@ -63,12 +64,12 @@ describe('<Login />', () => {
     // Spy on the push method of the router
     const pushAction = vi.spyOn(router, 'push')
 
-    const user = useUserStore()
-    user.name = 'John Doe'
+    const userStore = useUserStore()
+    userStore.name = user.username
 
     const input = await wrapper.find('input')
-    await input.setValue('John Doe')
-    expect(input.element.value).toBe('John Doe')
+    await input.setValue(user.username)
+    expect(input.element.value).toBe(user.username)
 
     const button = await wrapper.find('button')
     await button.trigger('click')

@@ -65,7 +65,7 @@ socket.off(events.server.USER_DISCONNECTION).on(events.server.USER_DISCONNECTION
     <div v-if="!users.length">
       {{ t('text.connection.no-users') }}
     </div>
-    <div v-for="_user in users" :key="_user.id">
+    <div v-for="_user in users" :key="_user.id" role="usersList">
       {{ _user.username }}
     </div>
   </div>

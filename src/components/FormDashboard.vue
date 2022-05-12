@@ -49,6 +49,7 @@ const send = () => {
     >
     <button
       class="flex justify-center items-center bg-purple-700 text-white min-w-10 px-4  rounded-full transition ease duration-200 hover:bg-purple-800"
+      role="send-message-button"
     >
       <SendMessageIcon class="fill-white max-w-10 max-h-10" />
     </button>

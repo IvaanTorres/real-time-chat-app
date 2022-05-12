@@ -10,8 +10,15 @@ export const locales = {
 }
 
 export const routes = {
+  HOME: '/',
   LOGIN: '/auth/login',
   DASHBOARD: '/dashboard',
+}
+
+export const layouts = {
+  DASHBOARD: 'dashboard',
+  AUTH: 'auth',
+  NOT_FOUND: 404,
 }
 
 export const events = {

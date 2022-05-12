@@ -9,6 +9,7 @@ import { getDate, getTime } from '~/utils/main/main'
 import { useUserStore } from '~/stores/user'
 import { message } from '~/__mocks__/message'
 import { messages } from '~/modules/i18n'
+import { externalUser, user } from '~/__mocks__/user'
 
 let pinia: TestingPinia
 
@@ -18,7 +19,7 @@ beforeAll(() => {
   // Create pinia instance
   pinia = createTestingPinia({
     initialState: {
-      user: { name: 'John Doe' },
+      user: { name: user.username },
     },
   })
 })
@@ -71,12 +72,12 @@ describe('<Tag />', () => {
   test('should not be my message', () => {
     // Use the user store and change the name state
     const user = useUserStore()
-    user.name = 'Foo'
+    user.name = externalUser.username
     // Mount the component
     wrapper = mount(MessageComp, { props, global: plugins })
     // Get the div element
     const div = wrapper.find('[role="message"]')
     // Should not have that class
-    expect(div.classes()).not.toContain('ml-auto')
+    expect(div.classes()).toContain('mr-auto')
   })
 })

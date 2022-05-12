@@ -6,6 +6,7 @@ import { createI18n } from 'vue-i18n'
 import BoardInfo from '~/components/BoardInfo.vue'
 import { useUserStore } from '~/stores/user'
 import { messages } from '~/modules/i18n'
+import { user } from '~/__mocks__/user'
 
 beforeAll(() => {
   // Create pinia instance
@@ -39,10 +40,10 @@ describe('<BoardInfo />', () => {
   })
 
   test('should show the welcome message', () => {
-    const user = useUserStore()
-    user.name = 'John Doe'
+    const userStore = useUserStore()
+    userStore.name = user.username
 
     wrapper = mount(BoardInfo, global)
-    expect(wrapper.find('[role="username"]').text()).toBe('John Doe')
+    expect(wrapper.find('[role="username"]').text()).toBe(user.username)
   })
 })

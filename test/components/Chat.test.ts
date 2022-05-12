@@ -6,6 +6,7 @@ import { createI18n } from 'vue-i18n'
 import Chat from '~/components/Chat.vue'
 import { useUserStore } from '~/stores/user'
 import { messages } from '~/modules/i18n'
+import { user } from '~/__mocks__/user'
 
 let pinia: TestingPinia
 
@@ -15,7 +16,7 @@ beforeAll(() => {
   // Create pinia instance
   pinia = createTestingPinia({
     initialState: {
-      user: { name: 'John Doe' },
+      user: { name: user.username },
     },
   })
 })
@@ -41,9 +42,10 @@ describe('<Chat />', () => {
   })
 
   test('should show the loading message', () => {
-    const user = useUserStore()
-    user.name = 'John Doe'
+    const userStore = useUserStore()
+    userStore.name = user.username
 
+    // TODO: Expect the locale message
     expect(wrapper.find('[role="loader"]').text()).toBe('Loading messages...')
   })
 

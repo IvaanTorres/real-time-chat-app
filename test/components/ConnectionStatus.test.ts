@@ -49,6 +49,7 @@ describe('<ConnectionStatus />', () => {
       })
       const span = wrapper.get('span').element
 
+      // TODO: Expect the locale message
       expect(wrapper.find('[role="status"]').text()).toBe('Offline')
       expect(span.getAttribute('class')).toContain(['bg-red-500'])
     })
@@ -64,6 +65,7 @@ describe('<ConnectionStatus />', () => {
       })
       const span = wrapper.get('span').element
 
+      // TODO: Expect the locale message
       expect(wrapper.find('[role="status"]').text()).toBe('Online')
       expect(span.getAttribute('class')).toContain(['bg-green-500'])
     })

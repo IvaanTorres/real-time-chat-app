@@ -7,6 +7,7 @@ import Dashboard from '~/pages/dashboard/index.vue'
 import { useUserStore } from '~/stores/user'
 import { messages } from '~/modules/i18n'
 import { routes } from '~/enums'
+import { user } from '~/__mocks__/user'
 
 let pinia: TestingPinia
 // Define the router
@@ -22,7 +23,7 @@ beforeAll(() => {
   // Create pinia instance
   pinia = createTestingPinia({
     initialState: {
-      user: { name: 'John Doe' },
+      user: { name: user.username },
     },
   })
 })
@@ -67,17 +68,5 @@ describe('<Dashboard />', () => {
     expect(logoutAction).toHaveBeenCalledTimes(1)
 
     expect(user.name).toBe('')
-  })
-
-  test.todo('should connect', () => {
-    expect(true).toBe(true)
-  })
-
-  test.todo('should disconnect', () => {
-    expect(true).toBe(true)
-  })
-
-  test.todo('should get error from the server', () => {
-    expect(true).toBe(true)
   })
 })

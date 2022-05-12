@@ -34,6 +34,7 @@ describe('<Loader />', () => {
   })
 
   test('should show the loading message', () => {
+    // TODO: Expect the locale message
     expect(wrapper.find('[role="loader"]').text()).toBe('Loading messages...')
   })
 })

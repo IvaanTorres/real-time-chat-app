@@ -37,11 +37,12 @@ const login = () => {
         class="w-50 m-auto block rounded-xl shadow-inner border border-gray-200 border-width-2 p-2 px-4 mb-6"
         dark="bg-gray-100 border-gray-400"
         :placeholder="t('input.login')"
-        sm="text-black" type="text" name="user" @keydown.enter="login"
+        sm="text-black" type="text" name="username" @keydown.enter="login"
       >
       <button
         class="w-50 transition ease-in-out delay-500 m-auto block bg-gradient-to-r from-purple-500 to-purple-700 rounded-full px-15 py-3 text-white font-semibold"
         dark="bg-purple-900"
+        type="submit"
         hover="from-purple-700 to-purple-900"
         @click="login"
       >
@@ -53,5 +54,5 @@ const login = () => {
 
 <route lang="yaml">
 meta:
-  layout: default
+  layout: auth
 </route>
