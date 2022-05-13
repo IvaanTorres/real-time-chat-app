@@ -6,7 +6,7 @@ NC='\033[0m' # No Color
 
 current_branch=`git rev-parse --abbrev-ref HEAD`
 if [[ $current_branch =~ master|main|dev ]]; then
-  printf "${BLUE}Running Unit Tests... (Vitest) and Coverage (SonarQube)\n${NC}"
+  printf "${BLUE}Running Tests... (Vitest and Cypress) and Coverage (SonarQube)\n${NC}"
   npm run coverage
 else
   printf "${BLUE}Running Unit Tests... (Vitest)\n${NC}"
@@ -15,3 +15,6 @@ else
   #printf "${BLUE}Running e2e Tests... (Cypress)\n${NC}"
   #npm run test:e2e
 fi
+
+printf "${BLUE}Deploying to Heroku...\n${NC}"
+git push heroku $current_branch:master --no-verify
