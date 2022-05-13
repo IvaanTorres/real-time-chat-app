@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is partially based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## **[v1.5.0] - 2022-05-13**
+- ### **Feat**
+  - [2022-04-30] Add intl/i18n dropdown and darkmode switch ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/01d0240f73c06799ad39df4badbdd915f3f6619d)) 
+  - [2022-04-30] Set the i18n locale from the local storage ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/e721f88c7f41f45c204851f04e8483e10c720d79)) 
+  - [2022-04-30] Add style of the login page (and responsive) ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/24cdbb92d707a9ca7e27dd4416ac84abea06ba74)) 
+  - [2022-05-02] Add style of the dashboard page ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/0a8ef1e925b57befcd6b55b938ffe057ad58ce07)) 
+  - [2022-05-02] Add style of the message component ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/8b244def8c7ba6446e2365c66f7d305a13b371ad)) 
+  - [2022-05-02] Add style of the tag ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/3356d84fefc275900809164a8b6fd37f97f97557)) 
+  - [2022-05-04] Add autoscroll when the chat is updated ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/9bae3e65e1de560a3c03059c7fb345599291a8fa)) 
+  - [2022-05-04] Add the page 404 ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/a75af00e33f651b81c0066cee9b597fd88c6730d)) 
+
+- ### **CI**
+  - [2022-05-12] Update the ci pipeline ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/38b9d5b0c0cc852d6f49f1281fc4e86ea5b4b09f)) 
+  - [2022-05-13] Update the ci pipeline. remove e2e tests and heroku deployment ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/be819d90bbd17ad77cb530dd0a130768b815dcac)) 
+  - [2022-05-13] Add automatic deployment to Heroku in the prepush git hook for the moment ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/a1ae97979f6bfd7a79ad9ead5c64a35b8b4a10b0)) 
+
+- ### **Fix**
+  - [2022-04-30] Local storage is not defined ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/c539b6db9b24d72e2e5773733400943e7adb83ef)) 
+  - [2022-04-30] Navigator is not defined ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/a3195a8bba8a591b5d4b1174d1a06a27e4ae2730)) 
+
+- ### **Chore**
+  - [2022-05-03] Set the i18n content and use it ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/6a9728f1b566b579fc2e2eca35ecb770ac007182)) 
+  - [2022-05-05] Clean up the tests scaffolding ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/040be3dc7a061836e764314d012de0f0767b1263)) 
+
+- ### **Test**
+  - [2022-04-27] Add coverage config to Vitest so SonarQube can display the results ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/792d9e6bbc1225607f548a840b4f46416102e16a)) 
+  - [2022-05-03] Add unit tests ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/f2bcb5a3d9d5bfd07564b37d84e6f0e5196eab31)) 
+  - [2022-05-12] Add e2e tests with cypress ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/2ecb2f5ed4df34ebb9b48ce1db8b0fa3a9f998f7)) 
+
+
 ## **[v1.0.0] - 2022-04-27**
 - ### **CI**
   - [2022-04-13] Set mongodb local in docker development and production environments ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/4e570f421734d08484c596a6b8a245278612e801)) 
