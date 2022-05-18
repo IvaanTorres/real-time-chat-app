@@ -2,11 +2,14 @@
 . "$(dirname "$0")/_/husky.sh"
 
 BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 current_branch=`git rev-parse --abbrev-ref HEAD`
 if [[ $current_branch =~ master|main|dev ]]; then
   printf "${BLUE}Running Tests... (Vitest and Cypress) and Coverage (SonarQube)\n${NC}"
+  printf "${YELLOW}Please, check the development server is up and running as 'http://localhost'\n${NC}"
+  printf "${YELLOW}Please, check the API development server is up and running as 'http://localhost:3000'\n${NC}"
   npm run coverage
 else
   printf "${BLUE}Running Unit Tests... (Vitest)\n${NC}"

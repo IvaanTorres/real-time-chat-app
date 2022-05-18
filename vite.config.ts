@@ -90,8 +90,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'safari-pinned-tab.svg'],
       manifest: {
-        name: 'Vitesse',
-        short_name: 'Vitesse',
+        name: 'Thunder Link',
+        short_name: 'Thunder Link',
         theme_color: '#ffffff',
         icons: [
           {
