@@ -4,6 +4,10 @@ import { useUserStore } from '~/stores/user'
 // Use the user store
 const user = useUserStore()
 
+// const test = (hey: any) => hey
+// let test2 = 'test';
+// console.log(test2)
+
 </script>
 
 <template>
