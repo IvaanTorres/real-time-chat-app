@@ -35,7 +35,7 @@ jobs:
       matrix:
         node-version: [14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-      
+
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-        
+
       - run: npm install
       - run: npm run build
       - run: npm run test:unit:silent
@@ -81,17 +81,16 @@ jobs:
           push: true
           tags: ivaantorres/real-time-chat-app:1.5.0 # Name of the new tag
 
-  #deploy:
-  #  needs: docker
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: actions/checkout@v2
+  deploy:
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-      #- run: git push heroku ${GITHUB_REF##*/}:master
-
-      #! Heroku has disabled the Github CI deployment due to security issues with oAuth tokens.
-      #- uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-      #  with:
-      #    heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-      #    heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
-      #    heroku_email: 'ivantorresgarcia.02@gmail.com'
+      - name: Publish
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=site --functions=functions
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

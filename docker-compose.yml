@@ -5,7 +5,7 @@ services:
     container_name: app-ui
     build:
       context: ./
-      target: dev
+      target: prod
     ports:
       - '80:80' # Deben ser los mismos puertos, sino, la página se refresca constantemente
     volumes:
