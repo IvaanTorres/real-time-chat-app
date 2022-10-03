@@ -1,8 +1,8 @@
-# Thunder Link (v1.5.0) -  A Real-time Chat App
+# Thunder Link (v1.6.0) -  A Real-time Chat App
 
 This is the Thunder Link UI APP. It uses the Sockets API APP.
 
-Link to the project in production: [thunder-link.herokuapp.com](http://thunder-link.herokuapp.com)
+Link to the project in production: [https://thunder-link.netlify.app/](https://thunder-link.netlify.app/)
 
 ## Features
 
@@ -15,7 +15,7 @@ Link to the project in production: [thunder-link.herokuapp.com](http://thunder-l
 - Socket.IO
 - Docker environments
 - CI/CD with Docker and GitHub Actions
-- Continuous Deployment to Heroku
+- Continuous Deployment to Netlify
 - ENV config
 - Use of ESlint and Husky (Git hooks)
 

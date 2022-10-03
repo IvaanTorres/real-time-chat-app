@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is partially based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## **[v1.6.0] - 2022-10-04** 
+  ### **CI**
+  - [2022-10-04] deploy to netlify ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/5ce1c5376353d24b8e8e6345c96ef1e9cc7c2da6))
+  - [2022-10-04] deploy to netlify ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/40c807067227b6dc4efebc3c8882385147fb6122))
+  - [2022-10-04] deploy to netlify ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/1eb34edef8328f24b90776565bb52a933c7c00ff))
+  - [2022-10-04] deploy to netlify ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/535c818f942caeaf7426aca1dc5c77a66bd79bea))
+  - [2022-10-04] deploy to netlify ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/ec7a18207ddfd0f21b80f8cd2f5ebb6c2c183cc2))
+  - [2022-10-04] deploy to netlify ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/fe31f7edc3393d529967ed74166cf270b3dd4ef6))
+
+  ### **Fix**
+  - [2022-05-18] fix the start of the staging environment ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/94f36e71c445d1555ddf9bb846d66ccd35e19d03))
+
 ## **[v1.5.0] - 2022-05-13**
 - ### **Feat**
   - [2022-04-30] Add intl/i18n dropdown and darkmode switch ([View commit](https://github.com/IvaanTorres/ui-real-time-chat-app/commit/01d0240f73c06799ad39df4badbdd915f3f6619d)) 
